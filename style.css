@@ -169,6 +169,15 @@ body{
 .contact-form button:hover {
   background: #a94463;
 }
+.main-nav a.active {
+  color: #c75b7a;         /* Akzentfarbe */
+  border-bottom: 2px solid #c75b7a; 
+  padding-bottom: 2px;
+}
+
+.main-nav a:hover {
+  color: #a94463;
+}
 
 /* Responsive */
 @media (max-width:600px){
