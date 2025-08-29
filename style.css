@@ -178,6 +178,43 @@ body{
 .main-nav a:hover {
   color: #a94463;
 }
+/* Services in Spalten */
+.service-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.service-item {
+  background: white;
+  padding: 16px;
+  border-radius: 12px;
+  text-align: center;
+  max-width: 220px;
+  flex: 1 1 200px; /* flexibel, aber Mindestbreite 200px */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease;
+}
+
+.service-item img {
+  max-width: 100%;
+  border-radius: 10px;
+  margin-bottom: 12px;
+}
+
+.service-item:hover {
+  transform: translateY(-3px);
+}
+
+/* Responsive Anpassung */
+@media (max-width:600px){
+  .service-items {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
 
 /* Responsive */
 @media (max-width:600px){
