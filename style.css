@@ -5,10 +5,11 @@
   --text: #000000;
 }
 
+/* Grundstruktur */
 *{box-sizing:border-box;}
 body{
   margin:0;
-  font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   background:var(--bg);
   color:var(--text);
   line-height:1.5;
@@ -18,7 +19,7 @@ body{
 /* Header mit transparentem Bild */
 .site-header {
   position: relative;
-  padding: 28px 0 100px 0; /* Platz für Hero */
+  padding: 28px 0;
   text-align: center;
   color: var(--text);
   overflow: hidden;
@@ -29,22 +30,38 @@ body{
   top: 0; left: 0;
   width: 100%; height: 100%;
   background: url('images/header-bg.png') center/cover no-repeat;
-  opacity: 0.2; 
-  z-index: 0;
+  opacity: 0.2; z-index: 0;
+  animation: header-float 10s ease-in-out infinite;
 }
 @keyframes header-float {
   0% { background-position: center 0%; }
   50% { background-position: center 3%; }
   100% { background-position: center 0%; }
 }
-.site-header h1, .subtitle, .tagline, .main-nav {position: relative; z-index: 1;}
-.site-header h1 {
-  margin: 0;
-  font-size: 40px; /* größere Überschrift */
-  letter-spacing: 0.2px;
+
+/* Text über Header */
+.site-header h1, .subtitle, .tagline, .main-nav {
+  position: relative;
+  z-index: 1;
 }
-.subtitle {font-weight:600;font-size:16px;display:block;margin-top:6px;opacity:0.95;}
-.tagline {margin-top:8px;font-size:14px;opacity:0.95;}
+.site-header h1{
+  margin:0;
+  font-size:36px;
+  font-family: Cambria, "Times New Roman", serif;
+  letter-spacing:0.5px;
+}
+.subtitle{
+  font-weight:600;
+  font-size:18px;
+  display:block;
+  margin-top:6px;
+  opacity:0.95;
+}
+.tagline{
+  margin-top:8px;
+  font-size:14px;
+  opacity:0.95;
+}
 
 /* Navigation */
 .main-nav {
@@ -56,27 +73,32 @@ body{
 .main-nav li {display: inline-block; margin: 0 15px;}
 .main-nav a {
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 600;
   color: var(--text);
   transition: color 0.3s ease;
 }
 .main-nav a.active {color: var(--accent); border-bottom: 2px solid var(--accent); padding-bottom: 2px;}
 .main-nav a:hover {color: #c75b7a;}
 
-/* Hero über Header-Bild */
-.hero {
-  background: white;
-  border-radius: 12px;
-  padding: 28px;
-  margin-top: -60px; /* überlappt Header */
-  position: relative;
-  z-index: 2;
-  box-shadow: 0 6px 22px rgba(0,0,0,0.06);
-  text-align: center;
+/* Hero */
+.hero{
+  background:white;
+  border-radius:12px;
+  padding:28px;
+  margin-top:-40px;
+  box-shadow:0 6px 22px rgba(0,0,0,0.06);
+  text-align:center;
 }
-.hero h2 {margin:0 0 12px 0;font-size:22px;color:var(--text);}
-.hero p {margin:0 0 18px 0;color:var(--text);}
-.cta {
+.hero h2{
+  margin:0 0 12px 0;
+  font-size:22px;
+  color:var(--text);
+}
+.hero p{
+  margin:0 0 18px 0;
+  color:var(--text);
+}
+.cta{
   display:inline-block;
   padding:12px 24px;
   border-radius:10px;
@@ -87,19 +109,23 @@ body{
   text-decoration:none;
   transition: all 0.3s ease;
 }
-.cta:hover {
+.cta:hover{
   transform: translateY(-2px);
   background: #ffccd8;
 }
 
 /* Dienstleistungen */
-.services {
+.services{
   margin-top:20px;
   background:white;
   padding:18px;
   border-radius:10px;
 }
-.services h3{margin-top:0;}
+.services h3{
+  margin-top:0;
+  font-family: Cambria, "Times New Roman", serif;
+  font-size:24px;
+}
 
 /* Services in Spalten */
 .service-items {
@@ -145,7 +171,7 @@ body{
 }
 .service-item:hover {
   transform: scale(1.03);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  box-shadow:0 10px 25px rgba(0, 0, 0, 0.2);
 }
 .service-item:hover::after {
   opacity:1;
@@ -158,9 +184,7 @@ body{
 .service-item:hover p {color: #555; transform: translateY(-1px);}
 
 /* Galerie */
-.gallery {
-  margin-top:32px;
-}
+.gallery {margin-top:32px;}
 .gallery .images {
   display:flex;
   flex-wrap:wrap;
@@ -188,23 +212,41 @@ body{
 }
 
 /* Kontakt */
-.contact {
-  margin-top:16px;
-  padding:16px;
-  background:transparent;
-  color:var(--text);
-}
+.contact{margin-top:16px; padding:16px; background:transparent; color:var(--text);}
 
 /* Footer */
-.site-footer {
-  margin-top:36px;
-  padding:18px 0;
-  text-align:center;
-  color:#666;
-  font-size:14px;
+.site-footer{margin-top:36px; padding:18px 0; text-align:center; color:#666; font-size:14px;}
+
+/* Bottom-Bar fixiert */
+.bottom-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px 0;
+  z-index: 999;
+}
+.bottom-bar .bottom-btn {
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  background: var(--accent);
+  color: var(--text);
+  font-weight: 600;
+  font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+.bottom-bar .bottom-btn:hover {
+  background: #ffccd8;
+  transform: translateY(-2px);
 }
 
-/* Responsive */
+/* Responsive Anpassung */
 @media (max-width:600px){
   .service-items {flex-direction: column; gap:12px;}
   .site-header h1{font-size:28px;}
@@ -212,4 +254,6 @@ body{
 }
 @media (max-width:480px){
   .gallery .images {flex-direction: column; gap:12px;}
+  .bottom-bar {flex-direction: row; gap:6px; padding:8px 0;}
+  .bottom-bar .bottom-btn {padding:6px 10px; font-size:14px;}
 }
