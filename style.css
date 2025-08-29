@@ -1,9 +1,9 @@
 :root{
-  --primary: #000000; /* Schwarze Schrift */
-  --accent: #ffd1e0;  /* Akzentfarbe für kleine Elemente */
-  --bg: #f8f8f8;      /* Seitenhintergrund */
-  --text: #000000;    /* Textfarbe schwarz */
-  --service-bg: #ffe0e5; /* Hellrosa Service-Boxen */
+  --primary: #ff6fa3; /* dezentes Pink */
+  --accent: #ffd1e0;  /* heller Pink-Akzent */
+  --bg: #f8f8f8;      /* neutraler Hintergrund */
+  --text: #2b2b2b;
+  --secondary: #555555;
 }
 
 /* Grundstruktur */
@@ -19,8 +19,8 @@ body{
 
 /* Header */
 .site-header{
-  background: url('images/header-bg.png') no-repeat center center/cover;
-  color: var(--text);
+  background:linear-gradient(90deg,var(--primary),var(--accent));
+  color:white;
   padding:28px 0;
   text-align:center;
 }
@@ -30,7 +30,7 @@ body{
 
 /* Navigation */
 .main-nav {
-  background: transparent;
+  background: #f8f8f8;
   padding: 10px 0;
   text-align: center;
 }
@@ -39,15 +39,15 @@ body{
 .main-nav a {
   text-decoration: none;
   font-weight: bold;
-  color: var(--text);
+  color: #333;
   transition: color 0.3s ease;
 }
 .main-nav a.active {
-  color: var(--accent);
-  border-bottom: 2px solid var(--accent); 
+  color: #c75b7a;
+  border-bottom: 2px solid #c75b7a; 
   padding-bottom: 2px;
 }
-.main-nav a:hover {color: #c75b7a;}
+.main-nav a:hover {color: #a94463;}
 
 /* Hero */
 .hero{
@@ -59,23 +59,23 @@ body{
   text-align:center;
 }
 .hero h2{margin:0 0 12px 0;font-size:22px;color:var(--text)}
-.hero p{margin:0 0 18px 0;color:var(--text)}
+.hero p{margin:0 0 18px 0;color:#444}
 
 /* CTA Button */
 .cta{
   display:inline-block;
   padding:12px 24px;
   border-radius:10px;
-  background:var(--accent);
-  color: var(--text);
+  background:var(--primary);
+  color:white;
   font-weight:600;
   box-shadow:0 6px 14px rgba(255,111,163,0.18);
   text-decoration:none;
   transition: all 0.3s ease;
 }
 .cta:hover{
+  background: var(--accent);
   transform: translateY(-2px);
-  background: #ffccd8;
 }
 
 /* Dienstleistungen */
@@ -96,7 +96,7 @@ body{
   margin-top: 16px;
 }
 .service-item {
-  background: var(--service-bg);
+  background: white;
   padding: 16px;
   border-radius: 12px;
   text-align: center;
@@ -106,19 +106,17 @@ body{
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
   text-decoration: none;
-  color: var(--text);
-  overflow: hidden;
+  color: inherit;
+  overflow: hidden; /* wichtig für Overlay Animation */
 }
 .service-item img {
   max-width: 100%;
   border-radius: 10px;
   margin-bottom: 12px;
   transition: transform 0.3s ease;
-  position: relative;
-  overflow: hidden;
 }
 
-/* Hover-Effekt Overlay */
+/* Hover-Effekt mit Farbverlaufs-Overlay */
 .service-item::after {
   content:'';
   position:absolute;
@@ -142,40 +140,18 @@ body{
   transform: translateY(0);
 }
 
-/* Titel und Text Animation */
+/* Titel und Text beim Hover hervorheben */
 .service-item h4,
 .service-item p {
   transition: transform 0.3s ease, color 0.3s ease;
 }
 .service-item:hover h4 {
-  color: var(--accent);
+  color: var(--primary);
   transform: translateY(-2px);
 }
 .service-item:hover p {
   color: #555;
   transform: translateY(-1px);
-}
-
-/* Glanz-Effekt für Bilder */
-.service-item img::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -75%;
-  width: 50%;
-  height: 200%;
-  background: linear-gradient(
-    120deg,
-    rgba(255,255,255,0) 0%,
-    rgba(255,255,255,0.3) 50%,
-    rgba(255,255,255,0) 100%
-  );
-  transform: rotate(25deg);
-  transition: all 0.7s ease;
-  pointer-events: none;
-}
-.service-item:hover img::before {
-  left: 120%;
 }
 
 /* Galerie */
@@ -213,7 +189,7 @@ body{
   margin-top:16px;
   padding:16px;
   background:transparent;
-  color:var(--text);
+  color:#444;
 }
 
 /* Footer */
@@ -237,14 +213,42 @@ body{
   border-radius: 8px;
 }
 .contact-form button {
-  background: var(--accent);
-  color: var(--text);
+  background: #c75b7a;
+  color: white;
   font-weight: bold;
   cursor: pointer;
   border: none;
   transition: background 0.3s ease;
 }
-.contact-form button:hover {background: #ffccd8;}
+.contact-form button:hover {background: #a94463;}
+/* Glanz-Effekt für Service-Bilder */
+.service-item img {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Shine Overlay */
+.service-item img::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -75%;
+  width: 50%;
+  height: 200%;
+  background: linear-gradient(
+    120deg,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,0.3) 50%,
+    rgba(255,255,255,0) 100%
+  );
+  transform: rotate(25deg);
+  transition: all 0.7s ease;
+}
+
+/* Shine beim Hover */
+.service-item:hover img::before {
+  left: 120%;
+}
 
 /* Responsive Anpassung */
 @media (max-width:600px){
