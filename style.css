@@ -1,8 +1,9 @@
 :root{
-  --primary: #ff6fa3; /* rosa */
-  --accent: #ffc6dd;
-  --bg: #fffafc;
+  --primary: #ff6fa3; /* dezentes Pink */
+  --accent: #ffd1e0;  /* heller Pink-Akzent */
+  --bg: #f8f8f8;      /* neutraler Hintergrund */
   --text: #2b2b2b;
+  --secondary: #555555;
 }
 
 /* Grundstruktur */
@@ -42,19 +43,18 @@ body{
 /* CTA Button */
 .cta{
   display:inline-block;
-  padding:10px 18px;
+  padding:12px 24px;
   border-radius:10px;
   background:var(--primary);
   color:white;
-  text-decoration:none;
   font-weight:600;
   box-shadow:0 6px 14px rgba(255,111,163,0.18);
+  text-decoration:none;
+  transition: all 0.3s ease;
 }
 .cta:hover{
   background: var(--accent);
-  box-shadow:0 8px 20px rgba(255,111,163,0.3);
   transform: translateY(-2px);
-  transition: all 0.3s ease;
 }
 
 /* Dienstleistungen */
@@ -69,27 +69,6 @@ body{
 .services ul li {
   padding:6px 0;
   position: relative;
-}
-.services ul li::before {
-  content: "💄";
-  margin-right: 8px;
-}
-
-/* Kontakt */
-.contact{
-  margin-top:16px;
-  padding:16px;
-  background:transparent;
-  color:#444;
-}
-
-/* Footer */
-.site-footer{
-  margin-top:36px;
-  padding:18px 0;
-  text-align:center;
-  color:#666;
-  font-size:14px;
 }
 
 /* Galerie */
@@ -121,6 +100,24 @@ body{
   border-radius: 12px;
   margin: 12px 0;
   font-style: italic;
+  color: var(--text);
+}
+
+/* Kontakt */
+.contact{
+  margin-top:16px;
+  padding:16px;
+  background:transparent;
+  color:#444;
+}
+
+/* Footer */
+.site-footer{
+  margin-top:36px;
+  padding:18px 0;
+  text-align:center;
+  color:#666;
+  font-size:14px;
 }
 
 /* Responsive */
