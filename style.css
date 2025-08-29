@@ -1,4 +1,4 @@
-:root{
+ :root{
   --primary: #000000; 
   --accent: #ffd1e0;
   --bg: #f8f8f8;
@@ -130,9 +130,9 @@ body{
 /* Services in Spalten */
 .service-items {
   display: flex;
-  flex-wrap: wrap;          /* mehrere Reihen möglich */
+  flex-wrap: wrap;          
   gap: 16px;
-  justify-content: center;  /* nebeneinander und zentriert */
+  justify-content: center;  
   align-items: flex-start;
 }
 .service-item {
@@ -148,6 +148,13 @@ body{
   text-decoration: none;
   color: var(--text);
   overflow:hidden;
+  display:block;
+}
+.service-item img {
+  max-width:100%;           /* wieder wie vorher */
+  border-radius:10px;
+  margin-bottom:12px;
+  transition: transform 0.3s ease;
   display:block;
 }
 .service-item::after {
@@ -179,28 +186,24 @@ body{
 /* Galerie */
 .gallery {margin-top:32px;}
 .gallery .images {
-  display:flex;
-  flex-wrap: wrap;          /* erlaubt Umbruch */
+  display: flex;
+  flex-wrap: wrap;          
   gap:16px;
-  justify-content:center;   /* nebeneinander, zentriert */
-  align-items:flex-start;
+  justify-content: center;  
+  align-items: flex-start;
 }
 
-/* Galerie-Bilder & Hochzeitslooks (vereinheitlicht) */
-.gallery img,
-.service-item img {
-  max-width: 100px;   /* kleine Standardgröße */
-  width: 100%;
-  height: auto;
-  margin: 0 auto 12px;
-  display: block;
+/* Galerie-Bilder quadratisch und Hover-Effekt */
+.gallery img {
+  width: 100px;         /* feste Breite */
+  height: 100px;        /* feste Höhe */
+  object-fit: cover;    /* Bild wird zugeschnitten */
   border-radius: 10px;
   box-shadow: 0 3px 8px rgba(0,0,0,0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.gallery img:hover,
-.service-item img:hover {
+.gallery img:hover {
   transform: scale(2.0); /* stark vergrößern beim Hover */
   box-shadow: 0 8px 24px rgba(0,0,0,0.25);
   z-index: 10;
