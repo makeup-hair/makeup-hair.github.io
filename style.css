@@ -146,6 +146,29 @@ body{
 .main-nav a:hover {
   color: #c75b7a; /* dezenter Akzent in rosa/rot */
 }
+.contact-form input,
+.contact-form textarea,
+.contact-form button {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.contact-form button {
+  background: #c75b7a;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  transition: background 0.3s ease;
+}
+
+.contact-form button:hover {
+  background: #a94463;
+}
 
 /* Responsive */
 @media (max-width:600px){
