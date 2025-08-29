@@ -220,6 +220,35 @@ body{
   border: none;
   transition: background 0.3s ease;
 }
+/* Glanz-Effekt für Service-Bilder */
+.service-item img {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Shine Overlay */
+.service-item img::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -75%;
+  width: 50%;
+  height: 200%;
+  background: linear-gradient(
+    120deg,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,0.3) 50%,
+    rgba(255,255,255,0) 100%
+  );
+  transform: rotate(25deg);
+  transition: all 0.7s ease;
+}
+
+/* Shine beim Hover */
+.service-item:hover img::before {
+  left: 120%;
+}
+
 .contact-form button:hover {background: #a94463;}
 
 /* Responsive Anpassung */
