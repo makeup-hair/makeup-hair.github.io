@@ -119,6 +119,33 @@ body{
   color:#666;
   font-size:14px;
 }
+.main-nav {
+  background: #f8f8f8;
+  padding: 10px 0;
+  text-align: center;
+}
+
+.main-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.main-nav li {
+  display: inline-block;
+  margin: 0 15px;
+}
+
+.main-nav a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.main-nav a:hover {
+  color: #c75b7a; /* dezenter Akzent in rosa/rot */
+}
 
 /* Responsive */
 @media (max-width:600px){
