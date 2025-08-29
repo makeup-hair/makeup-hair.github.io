@@ -203,6 +203,35 @@ body{
   color:#666;
   font-size:14px;
 }
+/* Fixed Bottom Bar */
+.bottom-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 10px 0;
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+  z-index: 9999;
+}
+
+.bottom-bar .bottom-btn {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  background-color: #f7f7f7;
+  padding: 8px 15px;
+  border-radius: 25px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.bottom-bar .bottom-btn:hover {
+  background-color: #333;
+  color: white;
+}
 
 /* Responsive */
 @media (max-width:600px){
