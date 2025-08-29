@@ -1,6 +1,6 @@
 :root{
   --primary: #000000; /* Schwarze Schrift */
-  --accent: #ffd1e0;  /* Akzentfarbe für kleine Elemente */
+  --accent: #ffd1e0;  /* Akzentfarbe */
   --bg: #f8f8f8;      /* Seitenhintergrund */
   --text: #000000;    /* Textfarbe schwarz */
 }
@@ -16,7 +16,7 @@ body{
 }
 .container{max-width:920px;margin:0 auto;padding:24px}
 
-/* Header mit transparentem Bild hinter der Überschrift */
+/* Header mit transparentem Bild */
 .site-header {
   position: relative;
   padding: 28px 0;
@@ -24,7 +24,6 @@ body{
   color: var(--text);
   overflow: hidden;
 }
-
 .site-header::before {
   content: "";
   position: absolute;
@@ -37,20 +36,17 @@ body{
   z-index: 0;                  
   animation: header-float 10s ease-in-out infinite;
 }
-
 @keyframes header-float {
   0% { background-position: center 0%; }
   50% { background-position: center 3%; }
   100% { background-position: center 0%; }
 }
-
 .site-header h1,
 .site-header .subtitle,
 .site-header .tagline {
   position: relative;
   z-index: 1; 
 }
-
 .site-header h1{margin:0;font-size:28px;letter-spacing:0.2px}
 .subtitle{font-weight:600;font-size:16px;display:block;margin-top:6px;opacity:0.95}
 .tagline{margin-top:8px;font-size:14px;opacity:0.95}
@@ -135,14 +131,13 @@ body{
   text-decoration: none;
   color: var(--text);
   overflow: hidden;
+  display: block; /* macht das <a> wie Block-Container */
 }
 .service-item img {
   max-width: 100%;
   border-radius: 10px;
   margin-bottom: 12px;
   transition: transform 0.3s ease;
-  position: relative;
-  overflow: hidden;
   display: block;
 }
 
@@ -154,7 +149,7 @@ body{
   left:0;
   width:100%;
   height:100%;
-  background: linear-gradient(to top, rgba(255,192,203,0.3), rgba(255,192,203,0));
+  background: linear-gradient(to top, rgba(255,192,203,0.2), rgba(255,192,203,0));
   opacity:0;
   border-radius:12px;
   transition: opacity 0.4s ease, transform 0.4s ease;
@@ -169,45 +164,12 @@ body{
   opacity:1;
   transform: translateY(0);
 }
-
-/* Titel und Text Animation */
 .service-item h4,
 .service-item p {
   transition: transform 0.3s ease, color 0.3s ease;
 }
-.service-item:hover h4 {
-  color: var(--accent);
-  transform: translateY(-2px);
-}
-.service-item:hover p {
-  color: #555;
-  transform: translateY(-1px);
-}
-
-/* Glanz-Effekt für Bilder: Lichtschein von links nach rechts */
-.service-item img::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -75%;
-  width: 50%;
-  height: 100%;
-  background: linear-gradient(
-    120deg,
-    rgba(255,255,255,0) 0%,
-    rgba(255,255,255,0.25) 50%,
-    rgba(255,255,255,0) 100%
-  );
-  transform: skewX(-25deg);
-  pointer-events: none;
-}
-.service-item:hover img::before {
-  animation: shine 1s forwards;
-}
-@keyframes shine {
-  0% { left: -75%; }
-  100% { left: 125%; }
-}
+.service-item:hover h4 { color: var(--accent); transform: translateY(-2px);}
+.service-item:hover p { color: #555; transform: translateY(-1px); }
 
 /* Galerie */
 .gallery {
@@ -256,27 +218,6 @@ body{
   font-size:14px;
 }
 
-/* Kontaktformular */
-.contact-form input,
-.contact-form textarea,
-.contact-form button {
-  width: 100%;
-  max-width: 400px;
-  padding: 10px;
-  margin: 5px 0;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-}
-.contact-form button {
-  background: var(--accent);
-  color: var(--text);
-  font-weight: bold;
-  cursor: pointer;
-  border: none;
-  transition: background 0.3s ease;
-}
-.contact-form button:hover {background: #ffccd8;}
-
 /* Responsive Anpassung */
 @media (max-width:600px){
   .service-items {flex-direction: column; gap: 12px;}
@@ -286,3 +227,4 @@ body{
 @media (max-width:480px){
   .gallery .images {flex-direction: column; gap: 12px;}
 }
+
