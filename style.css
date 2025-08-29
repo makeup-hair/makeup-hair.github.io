@@ -1,9 +1,9 @@
 :root{
-  --primary: #ff6fa3; /* dezentes Pink */
-  --accent: #ffd1e0;  /* heller Pink-Akzent */
-  --bg: #f8f8f8;      /* neutraler Hintergrund */
-  --text: #2b2b2b;
-  --secondary: #555555;
+  --primary: #000000; /* Schwarze Schrift */
+  --accent: #ffd1e0;  /* Akzentfarbe für kleine Elemente */
+  --bg: #f8f8f8;      /* Seitenhintergrund */
+  --text: #000000;    /* Textfarbe schwarz */
+  --service-bg: #ffe0e5; /* Hellrosa Service-Boxen */
 }
 
 /* Grundstruktur */
@@ -17,20 +17,48 @@ body{
 }
 .container{max-width:920px;margin:0 auto;padding:24px}
 
-/* Header */
-.site-header{
-  background:linear-gradient(90deg,var(--primary),var(--accent));
-  color:white;
-  padding:28px 0;
-  text-align:center;
+/* Header mit transparentem Bild hinter der Überschrift */
+.site-header {
+  position: relative;
+  padding: 28px 0;
+  text-align: center;
+  color: var(--text);
+  overflow: hidden;
 }
+
+.site-header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('images/header-bg.png') center/cover no-repeat;
+  opacity: 0.2;                /* Transparenz */
+  z-index: 0;                  /* Bild hinter der Schrift */
+  animation: header-float 10s ease-in-out infinite;
+}
+
+@keyframes header-float {
+  0% { background-position: center 0%; }
+  50% { background-position: center 3%; }
+  100% { background-position: center 0%; }
+}
+
+.site-header h1,
+.site-header .subtitle,
+.site-header .tagline {
+  position: relative;
+  z-index: 1; /* Überschrift über dem Bild */
+}
+
 .site-header h1{margin:0;font-size:28px;letter-spacing:0.2px}
 .subtitle{font-weight:600;font-size:16px;display:block;margin-top:6px;opacity:0.95}
 .tagline{margin-top:8px;font-size:14px;opacity:0.95}
 
 /* Navigation */
 .main-nav {
-  background: #f8f8f8;
+  background: transparent;
   padding: 10px 0;
   text-align: center;
 }
@@ -39,15 +67,15 @@ body{
 .main-nav a {
   text-decoration: none;
   font-weight: bold;
-  color: #333;
+  color: var(--text);
   transition: color 0.3s ease;
 }
 .main-nav a.active {
-  color: #c75b7a;
-  border-bottom: 2px solid #c75b7a; 
+  color: var(--accent);
+  border-bottom: 2px solid var(--accent); 
   padding-bottom: 2px;
 }
-.main-nav a:hover {color: #a94463;}
+.main-nav a:hover {color: #c75b7a;}
 
 /* Hero */
 .hero{
@@ -59,23 +87,23 @@ body{
   text-align:center;
 }
 .hero h2{margin:0 0 12px 0;font-size:22px;color:var(--text)}
-.hero p{margin:0 0 18px 0;color:#444}
+.hero p{margin:0 0 18px 0;color:var(--text)}
 
 /* CTA Button */
 .cta{
   display:inline-block;
   padding:12px 24px;
   border-radius:10px;
-  background:var(--primary);
-  color:white;
+  background:var(--accent);
+  color: var(--text);
   font-weight:600;
   box-shadow:0 6px 14px rgba(255,111,163,0.18);
   text-decoration:none;
   transition: all 0.3s ease;
 }
 .cta:hover{
-  background: var(--accent);
   transform: translateY(-2px);
+  background: #ffccd8;
 }
 
 /* Dienstleistungen */
@@ -96,7 +124,7 @@ body{
   margin-top: 16px;
 }
 .service-item {
-  background: white;
+  background: var(--service-bg);
   padding: 16px;
   border-radius: 12px;
   text-align: center;
@@ -106,17 +134,20 @@ body{
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
   text-decoration: none;
-  color: inherit;
-  overflow: hidden; /* wichtig für Overlay Animation */
+  color: var(--text);
+  overflow: hidden;
 }
 .service-item img {
   max-width: 100%;
   border-radius: 10px;
   margin-bottom: 12px;
   transition: transform 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  display: block;
 }
 
-/* Hover-Effekt mit Farbverlaufs-Overlay */
+/* Hover-Effekt Overlay */
 .service-item::after {
   content:'';
   position:absolute;
@@ -140,18 +171,43 @@ body{
   transform: translateY(0);
 }
 
-/* Titel und Text beim Hover hervorheben */
+/* Titel und Text Animation */
 .service-item h4,
 .service-item p {
   transition: transform 0.3s ease, color 0.3s ease;
 }
 .service-item:hover h4 {
-  color: var(--primary);
+  color: var(--accent);
   transform: translateY(-2px);
 }
 .service-item:hover p {
   color: #555;
   transform: translateY(-1px);
+}
+
+/* Glanz-Effekt für Bilder: Lichtschein von links nach rechts */
+.service-item img::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,0.25) 50%,
+    rgba(255,255,255,0) 100%
+  );
+  transform: skewX(-25deg);
+  pointer-events: none;
+}
+.service-item:hover img::before {
+  animation: shine 1s forwards;
+}
+@keyframes shine {
+  0% { left: -75%; }
+  100% { left: 125%; }
 }
 
 /* Galerie */
@@ -189,7 +245,7 @@ body{
   margin-top:16px;
   padding:16px;
   background:transparent;
-  color:#444;
+  color:var(--text);
 }
 
 /* Footer */
@@ -213,42 +269,14 @@ body{
   border-radius: 8px;
 }
 .contact-form button {
-  background: #c75b7a;
-  color: white;
+  background: var(--accent);
+  color: var(--text);
   font-weight: bold;
   cursor: pointer;
   border: none;
   transition: background 0.3s ease;
 }
-.contact-form button:hover {background: #a94463;}
-/* Glanz-Effekt für Service-Bilder */
-.service-item img {
-  position: relative;
-  overflow: hidden;
-}
-
-/* Shine Overlay */
-.service-item img::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -75%;
-  width: 50%;
-  height: 200%;
-  background: linear-gradient(
-    120deg,
-    rgba(255,255,255,0) 0%,
-    rgba(255,255,255,0.3) 50%,
-    rgba(255,255,255,0) 100%
-  );
-  transform: rotate(25deg);
-  transition: all 0.7s ease;
-}
-
-/* Shine beim Hover */
-.service-item:hover img::before {
-  left: 120%;
-}
+.contact-form button:hover {background: #ffccd8;}
 
 /* Responsive Anpassung */
 @media (max-width:600px){
