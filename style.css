@@ -130,10 +130,10 @@ body{
 /* Services in Spalten */
 .service-items {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: wrap;          /* mehrere Reihen möglich */
   gap: 16px;
-  justify-content: center;
-  margin-top: 16px;
+  justify-content: center;  /* nebeneinander und zentriert */
+  align-items: flex-start;
 }
 .service-item {
   background:white;
@@ -149,19 +149,6 @@ body{
   color: var(--text);
   overflow:hidden;
   display:block;
-}
-.service-item img {
-  max-width: 140px;   /* kleiner Standard */
-  margin: 0 auto 12px;
-  display: block;
-  border-radius: 10px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.service-item img:hover {
-  transform: scale(1.3); /* größer beim Hover */
-  box-shadow: 0 6px 16px rgba(0,0,0,0.2);
-  z-index: 10;
-  position: relative;
 }
 .service-item::after {
   content:'';
@@ -193,21 +180,29 @@ body{
 .gallery {margin-top:32px;}
 .gallery .images {
   display:flex;
-  flex-wrap:wrap;
+  flex-wrap: wrap;          /* erlaubt Umbruch */
   gap:16px;
-  justify-content:center;
+  justify-content:center;   /* nebeneinander, zentriert */
+  align-items:flex-start;
 }
-.gallery img {
-  max-width: 180px;   /* kleiner Standard */
-  width:100%;
-  height:auto;
-  border-radius:12px;
-  box-shadow:0 4px 12px rgba(0,0,0,0.1);
+
+/* Galerie-Bilder & Hochzeitslooks (vereinheitlicht) */
+.gallery img,
+.service-item img {
+  max-width: 100px;   /* kleine Standardgröße */
+  width: 100%;
+  height: auto;
+  margin: 0 auto 12px;
+  display: block;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.gallery img:hover {
-  transform: scale(1.4); /* größer beim Hover */
-  box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+
+.gallery img:hover,
+.service-item img:hover {
+  transform: scale(2.0); /* stark vergrößern beim Hover */
+  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
   z-index: 10;
   position: relative;
 }
