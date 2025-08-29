@@ -207,6 +207,18 @@ body{
 .service-item:hover {
   transform: translateY(-3px);
 }
+/* Service-Bilder Hover-Effekt */
+.service-item a {
+  display: block;
+  overflow: hidden; /* Verhindert, dass das Bild aus dem Container ragt */
+  border-radius: 10px; /* Optional: abgerundete Ecken */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Sanfte Animation */
+}
+
+.service-item a:hover {
+  transform: scale(1.05); /* Bild leicht vergrößern */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Schatten hinzufügen */
+}
 
 /* Responsive Anpassung */
 @media (max-width:600px){
