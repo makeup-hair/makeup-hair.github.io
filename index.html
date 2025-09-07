@@ -1,130 +1,119 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SZ Stylings</title>
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400&family=Italianno&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meine elegante Webseite</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <!-- Header mit Bild -->
-  <header class="site-header">
-    <h1 class="logo-heading">SZ Stylings</h1>
-  </header>
-
-  <!-- Navigation -->
-  <nav class="main-nav">
-    <ul>
-      <li><a href="index.html" class="active">Home</a></li>
-      <li><a href="event-styling.html">Events</a></li>
-      <li><a href="shooting.html">Shooting</a></li>
-      <li><a href="kids.html">Kids</a></li>
-      <li><a href="special-makeup.html">Special Looks</a></li>
-      <li><a href="contact.html">Kontakt</a></li>
-    </ul>
-  </nav>
-
-  <main class="container">
-
-    <!-- Hero -->
-    <section class="hero">
-      <h2>Dein Look — perfekt in Szene gesetzt!</h2>
-      <p>Ich kreiere das passende Make-up & Hairstyling für dich.</p>
-      <a class="cta" href="mailto:info@szstylings.de">Jetzt Termin sichern</a>
-    </section>
-
-    <!-- Galerie -->
-    <section class="gallery">
-      <h3>Galerie</h3>
-      <div class="images">
-        <img src="images/Homepage1.jpg" alt="Makeup Beispiel">
-        <img src="images/Homepage2.jpg" alt="Hair Styling">
-      </div>
-    </section>
-
-    <!-- Services -->
-    <section class="services">
-      <h3>Services</h3>
-      <div class="service-items">
-        <a class="service-item" href="shooting.html">
-          <img src="images/specialmakeup1.jpg" alt="Beauty Shooting">
-          <h4>Styling für Shootings</h4>
-          <p>Professionelles Styling für Fotoshootings, Social Media oder Mode-Shootings – kreativ und modern.</p>
-        </a>
-        <a class="service-item" href="event-styling.html">
-          <img src="images/specialmakeup2.jpg" alt="Event Styling Beispiel">
-          <h4>Eventstyling</h4>
-          <p>Perfektes Styling für besondere Anlässe.</p>
-        </a>
-        <a class="service-item" href="special-effects.html">
-          <img src="images/Wunde.jpg" alt="Special Effects Make-up">
-          <h4>Special Effects Make-up</h4>
-          <p>Kreative Looks für Halloween, Karneval oder Filmproduktionen.</p>
-        </a>
-      </div>
-    </section>
-
-    <!-- Kundenbewertungen Slider -->
-    <section class="reviews">
-      <h3>Das sagen meine Kunden</h3>
-      <div class="review-slider">
-        <div class="slide active">
-          <blockquote>"Ich war begeistert von meinem Hochzeits-Make-up – einfach perfekt!" – Mareike S.</blockquote>
+    <!-- Header / Navigation -->
+    <header>
+        <div class="container header-container">
+            <h1 class="logo">Meine Webseite</h1>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">Über uns</a></li>
+                    <li><a href="#services">Angebote</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#contact">Kontakt</a></li>
+                </ul>
+            </nav>
         </div>
-        <div class="slide">
-          <blockquote>"Tolles Styling für mein Shooting, sehr professionell!" – Syila M.</blockquote>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-overlay">
+            <div class="container hero-content">
+                <h2>Willkommen auf unserer Seite</h2>
+                <p>Ein kurzer, eleganter Text, der die Besucher anspricht.</p>
+                <a href="#about" class="btn-primary">Mehr erfahren</a>
+            </div>
         </div>
-        <div class="slide">
-          <blockquote>"Meine Tochter war begeistert vom Kinderschminken!" – Anna L.</blockquote>
-        </div>
-      </div>
-      <div class="slider-dots">
-        <span class="dot active"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
-      </div>
     </section>
 
-    <!-- Kontakt -->
-    <section class="contact">
-      <h3>Kontakt</h3>
-      <p>Schreib mir unter: <a href="mailto:info@szstylings.de">info@szstylings.de</a></p>
-      <p>Oder direkt per WhatsApp: <a href="https://wa.me/DEINE_NUMMER">Hier klicken</a></p>
+    <!-- Über uns Section -->
+    <section id="about" class="section about">
+        <div class="container about-container">
+            <div class="about-text">
+                <h2>Über uns</h2>
+                <p>Hier kannst du einen Text über dich oder dein Projekt einfügen. Beschreibe deine Mission, Vision oder dein Team auf elegante Weise.</p>
+            </div>
+            <div class="about-image">
+                <img src="https://via.placeholder.com/500x400" alt="Über uns Bild">
+            </div>
+        </div>
     </section>
 
-  </main>
+    <!-- Services Section -->
+    <section id="services" class="section services">
+        <div class="container">
+            <h2>Unsere Angebote</h2>
+            <div class="service-grid">
+                <div class="service-item">
+                    <h3>Service 1</h3>
+                    <p>Beschreibung des ersten Angebots.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Service 2</h3>
+                    <p>Beschreibung des zweiten Angebots.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Service 3</h3>
+                    <p>Beschreibung des dritten Angebots.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Service 4</h3>
+                    <p>Beschreibung des vierten Angebots.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- Footer -->
-  <footer class="site-footer">
-    <p>© 2025 SZ Stylings — Mobile in Sachsen & Brandenburg</p>
-    <p><a href="impressum.html">Impressum</a> | <a href="datenschutz.html">Datenschutz</a></p>
-  </footer>
+    <!-- Portfolio / Galerie -->
+    <section id="portfolio" class="section portfolio">
+        <div class="container">
+            <h2>Portfolio</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-item"><img src="https://via.placeholder.com/300x200" alt="Bild 1"></div>
+                <div class="portfolio-item"><img src="https://via.placeholder.com/300x200" alt="Bild 2"></div>
+                <div class="portfolio-item"><img src="https://via.placeholder.com/300x200" alt="Bild 3"></div>
+                <div class="portfolio-item"><img src="https://via.placeholder.com/300x200" alt="Bild 4"></div>
+                <div class="portfolio-item"><img src="https://via.placeholder.com/300x200" alt="Bild 5"></div>
+                <div class="portfolio-item"><img src="https://via.placeholder.com/300x200" alt="Bild 6"></div>
+            </div>
+        </div>
+    </section>
 
-  <!-- Bottom Bar -->
-  <div class="bottom-bar">
-    <a href="mailto:info@szstylings.de" class="bottom-btn">Email</a>
-    <a href="https://www.instagram.com/deinprofil" target="_blank" class="bottom-btn">Instagram</a>
-  </div>
+    <!-- Kontakt Section -->
+    <section id="contact" class="section contact">
+        <div class="container">
+            <h2>Kontakt</h2>
+            <form action="#" method="post" class="contact-form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="email">E-Mail:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="message">Nachricht:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+                
+                <button type="submit" class="btn-primary">Absenden</button>
+            </form>
+        </div>
+    </section>
 
-  <!-- Slider Script -->
-  <script>
-    let currentSlide = 0;
-    const slides = document.querySelectorAll('.review-slider .slide');
-    const dots = document.querySelectorAll('.slider-dots .dot');
-
-    function showSlide(index) {
-      slides.forEach((slide,i)=>slide.classList.toggle('active',i===index));
-      dots.forEach((dot,i)=>dot.classList.toggle('active',i===index));
-    }
-    function nextSlide() {
-      currentSlide = (currentSlide + 1) % slides.length;
-      showSlide(currentSlide);
-    }
-    dots.forEach((dot,index)=>dot.addEventListener('click',()=>{ currentSlide=index; showSlide(currentSlide); }));
-    setInterval(nextSlide,5000);
-  </script>
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-container">
+            <p>&copy; 2025 Meine Webseite – Alle Rechte vorbehalten.</p>
+        </div>
+    </footer>
 
 </body>
 </html>
