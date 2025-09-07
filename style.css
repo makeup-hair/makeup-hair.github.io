@@ -75,7 +75,7 @@ body {
 .hero h2 {
   margin: 0 0 12px 0;
   font-size: 22px;
-  font-weight: normal; /* Keine fetten Buchstaben */
+  font-weight: normal;
   text-align: center;
 }
 .hero p { margin: 0 0 18px 0; }
@@ -83,13 +83,17 @@ body {
   display: inline-block;
   padding: 12px 24px;
   border-radius: 10px;
-  background: #000;
-  color: #fff;
+  background: #ffffff;  /* weißer Hintergrund */
+  color: #000000;       /* schwarzer Text */
   font-weight: normal;
   text-decoration: none;
+  border: 1px solid #000; /* schwarze Umrandung */
   transition: all 0.3s ease;
 }
-.cta:hover { transform: translateY(-2px); background: #333; }
+.cta:hover { 
+  transform: translateY(-2px); 
+  background: #f0f0f0;  /* leichtes Grau beim Hover */
+}
 
 /* Services */
 .services { margin-top: 20px; }
@@ -201,11 +205,12 @@ body {
   text-decoration: none;
   padding: 8px 16px;
   border-radius: 8px;
-  background: #000;
-  color: #fff;
+  background: #ffffff;  /* weißer Hintergrund */
+  color: #000000;       /* schwarzer Text */
   font-weight: normal;
+  border: 1px solid #000; /* schwarze Umrandung */
 }
-.bottom-bar .bottom-btn:hover { background: #333; }
+.bottom-bar .bottom-btn:hover { background: #f0f0f0; }
 
 /* Responsive */
 @media (max-width:600px){
