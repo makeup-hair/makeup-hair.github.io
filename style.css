@@ -39,59 +39,41 @@ body{
   100% { background-position: center 0%; }
 }
 
-/* Logo Überschrift SZ Stylings */
-.logo-title {
-  margin:0;
-  display: flex;
-  align-items: baseline;
-  justify-content: center;
-  gap: 6px;
-  position: relative;
-  z-index: 1;
-}
-
-.logo-title .sz {
-  font-family: 'Great Vibes', cursive;
-  font-size: 72px; /* sehr groß */
-  line-height: 1;
-  color: var(--accent); /* optional Highlight */
-}
-
-.logo-title .stylings {
-  font-family: 'Quicksand', sans-serif;
-  font-size: 24px; /* kleiner als SZ */
-  font-weight: 600;
-  line-height: 1.2;
-  color: var(--text);
-}
+/* Logo Überschrift SZ Stylings oben rechts */
 .logo-heading {
-  position: relative;
-  font-family: 'Arial Black', Arial, sans-serif;
-  margin: 50px;
+  position: absolute; /* oben rechts fixieren */
+  top: 20px;
+  right: 20px;
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 48px; /* Desktop-Größe */
+  text-align: right;
+  background: linear-gradient(90deg, #FFB6C1, #C19FFF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+  z-index: 10;
 }
 
-.logo-heading .sz {
-  font-size: 120px;
-  font-weight: bold;
-  display: inline-block;
-  position: relative;
-  color: #111;
-  z-index: 1;
+/* Tablet */
+@media (max-width: 1024px) {
+  .logo-heading {
+    font-size: 36px;
+    top: 15px;
+    right: 15px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+  }
 }
 
-.logo-heading .stylings {
-  font-size: 50px;
-  font-weight: bold;
-  color: #e63946; /* auffällige Farbe */
-  position: absolute;
-  top: 80px;     /* auf die untere Linie von Z */
-  left: 45px;    /* horizontal mittig über Z */
-  transform: rotate(-10deg); /* leichte Schräge */
-  z-index: 2;
-  text-transform: uppercase;
-  letter-spacing: 2px;
+/* Handy / Mobil */
+@media (max-width: 600px) {
+  .logo-heading {
+    font-size: 28px;
+    top: 10px;
+    right: 10px;
+    text-shadow: 0.5px 0.5px 1px rgba(0,0,0,0.1);
+  }
 }
-
 
 /* Untertitel und Tagline */
 .subtitle{
@@ -303,14 +285,10 @@ body{
 /* Responsive Anpassung */
 @media (max-width:600px){
   .service-items {flex-direction: column; gap:12px;}
-  .site-header h1, .logo-title .sz{font-size:48px;}
-  .logo-title .stylings{font-size:18px;}
   .hero h2{font-size:18px;}
 }
 @media (max-width:480px){
   .gallery .images {flex-direction: column; gap:12px;}
   .bottom-bar {flex-direction: row; gap:6px; padding:8px 0;}
   .bottom-bar .bottom-btn {padding:6px 10px; font-size:14px;}
-  .logo-title .sz{font-size:36px;}
-  .logo-title .stylings{font-size:16px;}
 }
