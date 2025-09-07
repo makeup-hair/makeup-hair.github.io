@@ -10,11 +10,6 @@
 
   <!-- CSS -->
   <link rel="stylesheet" href="style.css">
-  <style>
-    body, h1, h2, h3, h4, h5, h6, p, a, li, span, blockquote {
-      font-family: 'Quicksand', sans-serif;
-    }
-  </style>
 </head>
 <body>
 
@@ -87,22 +82,26 @@
       </div>
     </section>
 
-    <!-- Kundenbewertungen modern -->
+    <!-- Kundenbewertungen Slider -->
     <section class="reviews">
       <h3>Was Kunden sagen</h3>
-      <div class="review-cards">
-        <blockquote>
-          <p>"Ich war begeistert von meinem Hochzeits-Make-up – einfach perfekt!"</p>
-          <span>– Mareike S.</span>
-        </blockquote>
-        <blockquote>
-          <p>"Tolles Styling für mein Shooting, sehr professionell!"</p>
-          <span>– Syila M.</span>
-        </blockquote>
-        <blockquote>
-          <p>"Meine Tochter war begeistert vom Kinderschminken!"</p>
-          <span>– Anna L.</span>
-        </blockquote>
+      <div class="review-slider">
+        <button class="slide-btn" id="prev">&#10094;</button>
+        <div class="slides">
+          <div class="review-card">
+            <p>"Ich war begeistert von meinem Hochzeits-Make-up – einfach perfekt!"</p>
+            <span>– Mareike S.</span>
+          </div>
+          <div class="review-card">
+            <p>"Tolles Styling für mein Shooting, sehr professionell!"</p>
+            <span>– Syila M.</span>
+          </div>
+          <div class="review-card">
+            <p>"Meine Tochter war begeistert vom Kinderschminken!"</p>
+            <span>– Anna L.</span>
+          </div>
+        </div>
+        <button class="slide-btn" id="next">&#10095;</button>
       </div>
     </section>
 
@@ -122,6 +121,23 @@
     <a href="" class="bottom-btn">📞 Telefon</a>
     <a href="" target="_blank" class="bottom-btn">📱 Instagram</a>
   </div>
+
+  <!-- Slider Script -->
+  <script>
+    const slides = document.querySelector('.slides');
+    const slideCards = document.querySelectorAll('.review-card');
+    let index = 0;
+
+    document.getElementById('next').addEventListener('click', () => {
+      index = (index + 1) % slideCards.length;
+      slides.style.transform = `translateX(-${index * 100}%)`;
+    });
+
+    document.getElementById('prev').addEventListener('click', () => {
+      index = (index - 1 + slideCards.length) % slideCards.length;
+      slides.style.transform = `translateX(-${index * 100}%)`;
+    });
+  </script>
 
 </body>
 </html>
