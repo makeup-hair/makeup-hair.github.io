@@ -21,11 +21,10 @@ body {
   background: var(--bg);
   color: var(--text);
   line-height: 1.5;
-  font-weight: normal;
 }
 .container { max-width: 920px; margin: 0 auto; padding: 24px; }
 
-/* Header mit Hintergrundbild */
+/* Header */
 .site-header {
   position: relative;
   width: 100%;
@@ -50,8 +49,8 @@ body {
   font-family: 'Italianno', cursive;
   font-size: 48px;
   color: #000;
-  text-align: center;
   z-index: 10;
+  text-align: center;
 }
 
 /* Navigation */
@@ -87,29 +86,26 @@ body {
   font-weight: normal;
   text-align: center;
 }
-.hero p { margin: 0 0 18px 0; text-align: center; }
+.hero p { margin: 0 0 18px 0; }
 .cta {
   display: inline-block;
   padding: 12px 24px;
   border-radius: 10px;
-  background: #000;
-  color: #fff;
+  background: #ffffff;
+  color: #000000;
   font-weight: normal;
   text-decoration: none;
+  border: 1px solid #000;
   transition: all 0.3s ease;
 }
-.cta:hover { transform: translateY(-2px); background: #333; }
+.cta:hover { 
+  transform: translateY(-2px); 
+  background: #f0f0f0;
+}
 
 /* Services */
 .services { margin-top: 20px; }
-.services h3 {
-  margin-top:0;
-  font-size: 24px;
-  font-weight: normal;
-  text-align: center;
-}
-
-/* Service Items */
+.services h3 { margin-top:0; font-size: 24px; font-weight: normal; text-align: center; }
 .service-items {
   display: flex;
   flex-wrap: wrap;
@@ -134,6 +130,7 @@ body {
   margin-bottom: 12px;
   display: block;
 }
+.service-item h4 { font-weight: normal; text-align: center; }
 
 /* Galerie */
 .gallery { margin-top: 32px; text-align: center; }
@@ -150,21 +147,18 @@ body {
   object-fit: cover;
   border-radius: 10px;
   transition: transform 0.3s ease;
+  cursor: pointer;
 }
 .gallery img:hover {
-  transform: scale(2);
+  transform: scale(1.8);
   z-index: 10;
   position: relative;
 }
 
 /* Bewertungen Slider */
-.reviews {
-  margin-top: 40px;
-  text-align: center;
-}
-.reviews h3 { text-align: center; font-weight: normal; }
+.reviews { margin-top: 40px; text-align: center; }
 .review-slider { max-width: 600px; margin: 0 auto; overflow: hidden; position: relative; }
-.review-slider .slide { display: none; opacity: 0; transition: opacity 0.8s ease; }
+.review-slider .slide { display: none; opacity: 0; transition: opacity 0.5s ease; }
 .review-slider .slide.active { display: block; opacity: 1; }
 .reviews blockquote {
   background: #f0f0f0;
@@ -212,21 +206,24 @@ body {
   text-decoration: none;
   padding: 8px 16px;
   border-radius: 8px;
-  background: #000;
-  color: #fff;
+  background: #ffffff;
+  color: #000000;
   font-weight: normal;
+  border: 1px solid #000;
 }
-.bottom-bar .bottom-btn:hover { background: #333; }
+.bottom-bar .bottom-btn:hover { background: #f0f0f0; }
 
 /* Responsive */
 @media (max-width:600px){
   .service-items { flex-direction: column; gap: 12px; }
   .hero h2 { font-size: 18px; }
+  .gallery img:hover { transform: scale(1.4); } /* weniger Zoom auf Mobile */
 }
 @media (max-width:480px){
   .gallery .images { flex-direction: column; gap: 12px; }
   .bottom-bar { flex-direction: row; gap: 6px; padding: 8px 0; }
   .bottom-bar .bottom-btn { padding: 6px 10px; font-size: 14px; }
+  .gallery img { width: 80px; height: 80px; } /* kleinere Bilder für kleine Screens */
 }
 </style>
 </head>
@@ -249,14 +246,12 @@ body {
 
 <main class="container">
 
-  <!-- Hero -->
   <section class="hero">
     <h2>Dein Look — perfekt in Szene gesetzt!</h2>
     <p>Ich kreiere das passende Make-up & Hairstyling für dich.</p>
     <a class="cta" href="mailto:info@szstylings.de">Jetzt Termin sichern</a>
   </section>
 
-  <!-- Galerie -->
   <section class="gallery">
     <h3>Galerie</h3>
     <div class="images">
@@ -265,7 +260,6 @@ body {
     </div>
   </section>
 
-  <!-- Dienstleistungen -->
   <section class="services">
     <h3>Services</h3>
     <div class="service-items">
@@ -287,7 +281,6 @@ body {
     </div>
   </section>
 
-  <!-- Kundenbewertungen -->
   <section class="reviews">
     <h3>Das sagen meine Kunden</h3>
     <div class="review-slider">
@@ -308,7 +301,6 @@ body {
     </div>
   </section>
 
-  <!-- Kontakt -->
   <section class="contact">
     <h3>Kontakt</h3>
     <p>Schreib mir unter: <a href="mailto:info@szstylings.de">info@szstylings.de</a></p>
@@ -333,11 +325,41 @@ const slides = document.querySelectorAll('.review-slider .slide');
 const dots = document.querySelectorAll('.slider-dots .dot');
 
 function showSlide(index) {
-  slides.forEach((slide,i)=>{slide.classList.toggle('active',i===index);dots[i].classList.toggle('active',i===index);});
+  slides.forEach((slide,i)=>{
+    slide.classList.toggle('active', i===index);
+    dots[i].classList.toggle('active', i===index);
+  });
 }
-function nextSlide(){ currentSlide=(currentSlide+1)%slides.length; showSlide(currentSlide); }
-dots.forEach((dot,index)=>{ dot.addEventListener('click',()=>{ currentSlide=index; showSlide(currentSlide); }); });
+
+function nextSlide() {
+  currentSlide = (currentSlide + 1) % slides.length;
+  showSlide(currentSlide);
+}
+
+// Klick auf Punkte
+dots.forEach((dot,index)=>{
+  dot.addEventListener('click',()=>{
+    currentSlide = index;
+    showSlide(currentSlide);
+  });
+});
+
+// Automatischer Slider
 setInterval(nextSlide,5000);
+
+// Optional: Swipe für Mobile
+let startX = 0;
+let endX = 0;
+const slider = document.querySelector('.review-slider');
+slider.addEventListener('touchstart', e => { startX = e.touches[0].clientX; });
+slider.addEventListener('touchend', e => { 
+  endX = e.changedTouches[0].clientX;
+  if(startX - endX > 50) nextSlide();      // Wischen nach links = nächster
+  else if(endX - startX > 50) {           // Wischen nach rechts = vorheriger
+    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+    showSlide(currentSlide);
+  }
+});
 </script>
 
 </body>
