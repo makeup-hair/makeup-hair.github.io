@@ -1,368 +1,344 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SZ Stylings</title>
-  
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&family=Italianno&display=swap" rel="stylesheet">
-  
-  <style>
-    :root{
-      --primary: #000000; 
-      --accent: #f5e6d3; /* pastell-beige */
-      --bg: #f8f8f8;
-      --text: #000000;
-    }
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SZ Stylings</title>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400&family=Italianno&display=swap" rel="stylesheet">
+<style>
+:root {
+  --primary: #000000;
+  --bg: #ffffff;
+  --text: #000000;
+  --accent: #f5e6d3;
+}
 
-    * {box-sizing:border-box;}
-    body {
-      margin:0;
-      font-family: 'Quicksand', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height:1.5;
-    }
-    .container {max-width:920px; margin:0 auto; padding:24px;}
+/* Grundstruktur */
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: "Quicksand", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+  font-weight: normal;
+}
+.container { max-width: 920px; margin: 0 auto; padding: 24px; }
 
-    /* Header mit Hintergrundbild */
-    .site-header {
-      position: relative;
-      width: 100%;
-      height: 280px;
-      overflow: hidden;
-    }
-    .site-header::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: url('images/header-bg.png') center/cover no-repeat;
-      opacity: 0.25;
-      z-index: 0;
-    }
-    .logo-heading {
-      position: absolute;
-      top: 20px;
-      right: 30px;
-      font-family: 'Italianno', cursive;
-      font-weight: normal;
-      font-size: 56px;
-      color: #333333;
-      z-index: 10;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-    }
+/* Header mit Hintergrundbild */
+.site-header {
+  position: relative;
+  width: 100%;
+  height: 280px;
+  overflow: hidden;
+  text-align: center;
+}
+.site-header::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: url('images/header-bg.png') center/cover no-repeat;
+  opacity: 0.2;
+  z-index: 0;
+}
+.logo-heading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Italianno', cursive;
+  font-size: 48px;
+  color: #000;
+  text-align: center;
+  z-index: 10;
+}
 
-    /* Navigation */
-    .main-nav {
-      text-align:center;
-      background:#fff;
-      padding: 12px 0;
-      box-shadow:0 2px 6px rgba(0,0,0,0.05);
-    }
-    .main-nav ul {list-style:none; margin:0; padding:0;}
-    .main-nav li {display:inline-block; margin:0 15px;}
-    .main-nav a {
-      text-decoration:none;
-      font-weight:600;
-      color: var(--text);
-      transition:color 0.3s ease;
-    }
-    .main-nav a.active {color: var(--accent); border-bottom:2px solid var(--accent); padding-bottom:2px;}
-    .main-nav a:hover {color:#d9c7b0;}
+/* Navigation */
+.main-nav {
+  text-align: center;
+  background: #fff;
+  padding: 12px 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+.main-nav ul { list-style: none; margin: 0; padding: 0; }
+.main-nav li { display: inline-block; margin: 0 15px; }
+.main-nav a {
+  text-decoration: none;
+  font-weight: normal;
+  color: #000;
+  transition: color 0.3s ease;
+}
+.main-nav a:hover { color: #555; }
+.main-nav a.active { border-bottom: 1px solid #000; }
 
-    /* Hero */
-    .hero {
-      background:white;
-      border-radius:12px;
-      padding:28px;
-      margin-top:20px;
-      box-shadow:0 6px 22px rgba(0,0,0,0.06);
-      text-align:center;
-    }
-    .hero h2 {margin:0 0 12px 0; font-size:22px;}
-    .hero p {margin:0 0 18px 0;}
-    .cta {
-      display:inline-block;
-      padding:12px 24px;
-      border-radius:10px;
-      background:var(--accent);
-      color: var(--text);
-      font-weight:600;
-      box-shadow:0 6px 14px rgba(245,230,211,0.4);
-      text-decoration:none;
-      transition:all 0.3s ease;
-    }
-    .cta:hover {transform:translateY(-2px); background:#e9dccb;}
+/* Hero */
+.hero {
+  background: #fff;
+  border-radius: 12px;
+  padding: 28px;
+  margin-top: -40px;
+  box-shadow: 0 6px 22px rgba(0,0,0,0.06);
+  text-align: center;
+}
+.hero h2 {
+  margin: 0 0 12px 0;
+  font-size: 22px;
+  font-weight: normal;
+  text-align: center;
+}
+.hero p { margin: 0 0 18px 0; text-align: center; }
+.cta {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 10px;
+  background: #000;
+  color: #fff;
+  font-weight: normal;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+.cta:hover { transform: translateY(-2px); background: #333; }
 
-    /* Services */
-    .services {
-      margin-top:20px;
-      background:white;
-      padding:18px;
-      border-radius:10px;
-    }
-    .services h3 {margin-top:0; font-size:24px;}
-    .service-items {
-      display:flex;
-      flex-wrap:wrap;
-      gap:16px;
-      justify-content:center;
-    }
-    .service-item {
-      background:white;
-      padding:16px;
-      border-radius:12px;
-      text-align:center;
-      max-width:220px;
-      flex:1 1 200px;
-      box-shadow:0 4px 12px rgba(0,0,0,0.08);
-      transition:transform 0.3s ease, box-shadow 0.3s ease;
-      text-decoration:none;
-      color: var(--text);
-    }
-    .service-item img {
-      max-width:100%;
-      border-radius:10px;
-      margin-bottom:12px;
-      display:block;
-    }
-    .service-item:hover {
-      transform:scale(1.03);
-      box-shadow:0 10px 25px rgba(0,0,0,0.2);
-    }
-    .service-item:hover h4 {color: var(--accent);}
+/* Services */
+.services { margin-top: 20px; }
+.services h3 {
+  margin-top:0;
+  font-size: 24px;
+  font-weight: normal;
+  text-align: center;
+}
 
-    /* Galerie */
-    .gallery {margin-top:32px;}
-    .gallery .images {
-      display:flex;
-      flex-wrap:wrap;
-      gap:16px;
-      justify-content:center;
-    }
-    .gallery img {
-      width:100px; height:100px;
-      object-fit:cover;
-      border-radius:10px;
-      box-shadow:0 3px 8px rgba(0,0,0,0.1);
-      transition:transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .gallery img:hover {
-      transform:scale(2.0);
-      box-shadow:0 8px 24px rgba(0,0,0,0.25);
-      position:relative;
-      z-index:10;
-    }
+/* Service Items */
+.service-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+}
+.service-item {
+  background: #fff;
+  padding: 16px;
+  border-radius: 12px;
+  text-align: center;
+  max-width: 220px;
+  flex: 1 1 200px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-decoration: none;
+  color: #000;
+}
+.service-item img {
+  max-width: 100%;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  display: block;
+}
 
-    /* Bewertungs-Slider */
-    .reviews {
-      margin-top: 40px;
-      text-align: center;
-      position: relative;
-    }
-    .review-slider {
-      position: relative;
-      max-width: 600px;
-      margin: 0 auto;
-      overflow: hidden;
-    }
-    .review-slider .slide {
-      display: none;
-      opacity: 0;
-      transition: opacity 0.8s ease;
-    }
-    .review-slider .slide.active {
-      display: block;
-      opacity: 1;
-    }
-    .reviews blockquote {
-      background: var(--accent);
-      padding: 20px;
-      border-radius: 12px;
-      margin: 0;
-      font-style: italic;
-      color: var(--text);
-      box-shadow: 0 6px 14px rgba(0,0,0,0.1);
-    }
-    .slider-dots {
-      margin-top: 12px;
-    }
-    .slider-dots .dot {
-      height: 10px;
-      width: 10px;
-      margin: 0 5px;
-      background: #ccc;
-      border-radius: 50%;
-      display: inline-block;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-    .slider-dots .dot.active {
-      background: var(--accent);
-    }
+/* Galerie */
+.gallery { margin-top: 32px; text-align: center; }
+.gallery h3 { text-align: center; font-weight: normal; }
+.gallery .images {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+}
+.gallery img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+.gallery img:hover {
+  transform: scale(2);
+  z-index: 10;
+  position: relative;
+}
 
-    /* Kontakt */
-    .contact {margin-top:16px; padding:16px;}
+/* Bewertungen Slider */
+.reviews {
+  margin-top: 40px;
+  text-align: center;
+}
+.reviews h3 { text-align: center; font-weight: normal; }
+.review-slider { max-width: 600px; margin: 0 auto; overflow: hidden; position: relative; }
+.review-slider .slide { display: none; opacity: 0; transition: opacity 0.8s ease; }
+.review-slider .slide.active { display: block; opacity: 1; }
+.reviews blockquote {
+  background: #f0f0f0;
+  padding: 20px;
+  border-radius: 12px;
+  margin: 0;
+  font-style: italic;
+  color: #000;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.05);
+}
+.slider-dots { margin-top: 12px; }
+.slider-dots .dot {
+  height: 10px;
+  width: 10px;
+  margin: 0 5px;
+  background: #ccc;
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.slider-dots .dot.active { background: #000; }
 
-    /* Footer */
-    .site-footer {margin-top:36px; padding:18px 0; text-align:center; color:#666; font-size:14px;}
+/* Kontakt */
+.contact { margin-top: 16px; padding: 16px; text-align: center; }
+.contact h3 { font-weight: normal; text-align: center; }
 
-    /* Bottom-Bar */
-    .bottom-bar {
-      position:fixed;
-      bottom:0; left:0;
-      width:100%;
-      background:#fff;
-      box-shadow:0 -2px 8px rgba(0,0,0,0.1);
-      display:flex;
-      justify-content:center;
-      gap:10px;
-      padding:10px 0;
-      z-index:999;
-    }
-    .bottom-bar .bottom-btn {
-      text-decoration:none;
-      padding:8px 16px;
-      border-radius:8px;
-      background:var(--accent);
-      color: var(--text);
-      font-weight:600;
-      font-family:'Quicksand', sans-serif;
-      transition:background 0.3s ease, transform 0.2s ease;
-    }
-    .bottom-bar .bottom-btn:hover {background:#e9dccb; transform:translateY(-2px);}
-  </style>
+/* Footer */
+.site-footer { margin-top: 36px; padding: 18px 0; text-align: center; color: #666; font-size: 14px; }
+
+/* Bottom-Bar */
+.bottom-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px 0;
+  z-index: 999;
+}
+.bottom-bar .bottom-btn {
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  background: #000;
+  color: #fff;
+  font-weight: normal;
+}
+.bottom-bar .bottom-btn:hover { background: #333; }
+
+/* Responsive */
+@media (max-width:600px){
+  .service-items { flex-direction: column; gap: 12px; }
+  .hero h2 { font-size: 18px; }
+}
+@media (max-width:480px){
+  .gallery .images { flex-direction: column; gap: 12px; }
+  .bottom-bar { flex-direction: row; gap: 6px; padding: 8px 0; }
+  .bottom-bar .bottom-btn { padding: 6px 10px; font-size: 14px; }
+}
+</style>
 </head>
 <body>
 
-  <!-- Header mit Bild -->
-  <header class="site-header">
-    <h1 class="logo-heading">SZ Stylings</h1>
-  </header>
+<header class="site-header">
+  <h1 class="logo-heading">SZ Stylings</h1>
+</header>
 
-  <!-- Navigation -->
-  <nav class="main-nav">
-    <ul>
-      <li><a href="index.html" class="active">Home</a></li>
-      <li><a href="event-styling.html">Events</a></li>
-      <li><a href="shooting.html">Shooting</a></li>
-      <li><a href="kids.html">Kids</a></li>
-      <li><a href="special-makeup.html">Special Looks</a></li>
-      <li><a href="contact.html">Kontakt</a></li>
-    </ul>
-  </nav>
+<nav class="main-nav">
+  <ul>
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="event-styling.html">Events</a></li>
+    <li><a href="shooting.html">Shooting</a></li>
+    <li><a href="kids.html">Kids</a></li>
+    <li><a href="special-makeup.html">Special Looks</a></li>
+    <li><a href="contact.html">Kontakt</a></li>
+  </ul>
+</nav>
 
-  <main class="container">
+<main class="container">
 
-    <!-- Hero -->
-    <section class="hero">
-      <h2>Dein Look — perfekt in Szene gesetzt!</h2>
-      <p>Ich kreiere das passende Make-up & Hairstyling für dich.</p>
-      <a class="cta" href="mailto:info@szstylings.de">Jetzt Termin sichern</a>
-    </section>
+  <!-- Hero -->
+  <section class="hero">
+    <h2>Dein Look — perfekt in Szene gesetzt!</h2>
+    <p>Ich kreiere das passende Make-up & Hairstyling für dich.</p>
+    <a class="cta" href="mailto:info@szstylings.de">Jetzt Termin sichern</a>
+  </section>
 
-    <!-- Galerie -->
-    <section class="gallery">
-      <h3>Galerie</h3>
-      <div class="images">
-        <img src="images/Homepage1.jpg" alt="Makeup Beispiel">
-        <img src="images/Homepage2.jpg" alt="Hair Styling">
+  <!-- Galerie -->
+  <section class="gallery">
+    <h3>Galerie</h3>
+    <div class="images">
+      <img src="images/Homepage1.jpg" alt="Makeup Beispiel">
+      <img src="images/Homepage2.jpg" alt="Hair Styling">
+    </div>
+  </section>
+
+  <!-- Dienstleistungen -->
+  <section class="services">
+    <h3>Services</h3>
+    <div class="service-items">
+      <a class="service-item" href="shooting.html">
+        <img src="images/specialmakeup1.jpg" alt="Beauty Shooting">
+        <h4>Styling für Shootings</h4>
+        <p>Professionelles Styling für Fotoshootings, Social Media oder Mode-Shootings – kreativ und modern.</p>
+      </a>
+      <a class="service-item" href="event-styling.html">
+        <img src="images/specialmakeup2.jpg" alt="Event Styling Beispiel">
+        <h4>Eventstyling</h4>
+        <p>Perfektes Styling für Geburtstage, Jubiläen oder besondere Anlässe – passend zum Outfit und Anlass.</p>
+      </a>
+      <a class="service-item" href="special-effects.html">
+        <img src="images/Wunde.jpg" alt="Special Effects Make-up">
+        <h4>Special Effects Make-up</h4>
+        <p>Kreative Looks für Halloween, Karneval, Filmproduktionen oder besondere Events – gruselig oder bunt.</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- Kundenbewertungen -->
+  <section class="reviews">
+    <h3>Das sagen meine Kunden</h3>
+    <div class="review-slider">
+      <div class="slide active">
+        <blockquote>"Ich war begeistert von meinem Hochzeits-Make-up – einfach perfekt!" – Mareike S.</blockquote>
       </div>
-    </section>
-
-    <!-- Dienstleistungen -->
-    <section class="services">
-      <h3>Services</h3>
-      <div class="service-items">
-        <a class="service-item" href="shooting.html">
-          <img src="images/specialmakeup1.jpg" alt="Beauty Shooting">
-          <h4>Styling für Shootings</h4>
-          <p>Professionelles Styling für Fotoshootings, Social Media oder Mode-Shootings – kreativ und modern.</p>
-        </a>
-        <a class="service-item" href="event-styling.html">
-          <img src="images/specialmakeup2.jpg" alt="Event Styling Beispiel">
-          <h4>Eventstyling</h4>
-          <p>Perfektes Styling für Geburtstage, Jubiläen oder besondere Anlässe – passend zum Outfit und Anlass.</p>
-        </a>
-        <a class="service-item" href="special-effects.html">
-          <img src="images/Wunde.jpg" alt="Special Effects Make-up">
-          <h4>Special Effects Make-up</h4>
-          <p>Kreative Looks für Halloween, Karneval, Filmproduktionen oder besondere Events – gruselig oder bunt.</p>
-        </a>
+      <div class="slide">
+        <blockquote>"Tolles Styling für mein Shooting, sehr professionell!" – Syila M.</blockquote>
       </div>
-    </section>
-
-    <!-- Kundenbewertungen (Slider) -->
-    <section class="reviews">
-      <h3>Das sagen meine Kunden</h3>
-      <div class="review-slider">
-        <div class="slide active">
-          <blockquote>"Ich war begeistert von meinem Hochzeits-Make-up – einfach perfekt!" – Mareike S.</blockquote>
-        </div>
-        <div class="slide">
-          <blockquote>"Tolles Styling für mein Shooting, sehr professionell!" – Syila M.</blockquote>
-        </div>
-        <div class="slide">
-          <blockquote>"Meine Tochter war begeistert vom Kinderschminken!" – Anna L.</blockquote>
-        </div>
+      <div class="slide">
+        <blockquote>"Meine Tochter war begeistert vom Kinderschminken!" – Anna L.</blockquote>
       </div>
-      <div class="slider-dots">
-        <span class="dot active"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
-      </div>
-    </section>
+    </div>
+    <div class="slider-dots">
+      <span class="dot active"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+  </section>
 
-    <!-- Kontakt -->
-    <section class="contact">
-      <h3>Kontakt</h3>
-      <p>Schreib mir unter: <a href="mailto:info@szstylings.de">info@szstylings.de</a></p>
-      <p>Oder direkt per WhatsApp: <a href="https://wa.me/DEINE_NUMMER">Hier klicken</a></p>
-    </section>
+  <!-- Kontakt -->
+  <section class="contact">
+    <h3>Kontakt</h3>
+    <p>Schreib mir unter: <a href="mailto:info@szstylings.de">info@szstylings.de</a></p>
+    <p>Oder direkt per WhatsApp: <a href="https://wa.me/DEINE_NUMMER">Hier klicken</a></p>
+  </section>
 
-  </main>
+</main>
 
-  <!-- Footer -->
-  <footer class="site-footer">
-    <p>© 2025 SZ Stylings — All Stylings • Mobile in Sachsen & Brandenburg</p>
-    <p><a href="impressum.html">Impressum</a> | <a href="datenschutz.html">Datenschutz</a></p>
-  </footer>
+<footer class="site-footer">
+  <p>© 2025 SZ Stylings — All Stylings • Mobile in Sachsen & Brandenburg</p>
+  <p><a href="impressum.html">Impressum</a> | <a href="datenschutz.html">Datenschutz</a></p>
+</footer>
 
-  <!-- Bottom Bar -->
-  <div class="bottom-bar">
-    <a href="mailto:info@szstylings.de" class="bottom-btn">Email</a>
-    <a href="https://www.instagram.com/deinprofil" target="_blank" class="bottom-btn">Instagram</a>
-  </div>
+<div class="bottom-bar">
+  <a href="mailto:info@szstylings.de" class="bottom-btn">Email</a>
+  <a href="https://www.instagram.com/deinprofil" target="_blank" class="bottom-btn">Instagram</a>
+</div>
 
-  <!-- Slider Script -->
-  <script>
-    let currentSlide = 0;
-    const slides = document.querySelectorAll('.review-slider .slide');
-    const dots = document.querySelectorAll('.slider-dots .dot');
+<script>
+let currentSlide = 0;
+const slides = document.querySelectorAll('.review-slider .slide');
+const dots = document.querySelectorAll('.slider-dots .dot');
 
-    function showSlide(index) {
-      slides.forEach((slide, i) => {
-        slide.classList.toggle('active', i === index);
-        dots[i].classList.toggle('active', i === index);
-      });
-    }
-
-    function nextSlide() {
-      currentSlide = (currentSlide + 1) % slides.length;
-      showSlide(currentSlide);
-    }
-
-    dots.forEach((dot, index) => {
-      dot.addEventListener('click', () => {
-        currentSlide = index;
-        showSlide(currentSlide);
-      });
-    });
-
-    setInterval(nextSlide, 5000);
-  </script>
+function showSlide(index) {
+  slides.forEach((slide,i)=>{slide.classList.toggle('active',i===index);dots[i].classList.toggle('active',i===index);});
+}
+function nextSlide(){ currentSlide=(currentSlide+1)%slides.length; showSlide(currentSlide); }
+dots.forEach((dot,index)=>{ dot.addEventListener('click',()=>{ currentSlide=index; showSlide(currentSlide); }); });
+setInterval(nextSlide,5000);
+</script>
 
 </body>
 </html>
