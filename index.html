@@ -6,11 +6,8 @@
   <title>SZ Stylings</title>
   
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&family=Italianno&display=swap" rel="stylesheet">
   
-  <!-- CSS -->
-  <link rel="stylesheet" href="style.css">
-
   <style>
     :root{
       --primary: #000000; 
@@ -19,88 +16,76 @@
       --text: #000000;
     }
 
-    /* Allgemeine Schriftart für alles */
-    body, h1, h2, h3, h4, h5, h6, p, span, a, li {
+    /* Grundstruktur */
+    * {box-sizing:border-box;}
+    body {
+      margin:0;
       font-family: 'Quicksand', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height:1.5;
+    }
+    .container {max-width:920px; margin:0 auto; padding:24px;}
+
+    /* Header */
+    .site-header {
+      position: relative;
+      padding: 28px 0;
+      text-align: center;
+      color: var(--text);
+      overflow: hidden;
     }
 
-    /* Überschrift SZ Stylings oben rechts */
+    /* Logo Überschrift SZ Stylings */
     .logo-heading {
       position: absolute;
       top: 20px;
       right: 20px;
-      font-weight: 700;
-      font-size: 36px;
+      font-family: 'Italianno', cursive;
+      font-weight: normal;
+      font-size: 48px;
       color: #333333;
       text-align: right;
       z-index: 10;
     }
-
-    /* Tablet */
-    @media (max-width: 1024px) {
-      .logo-heading {
-        font-size: 28px;
-        top: 15px;
-        right: 15px;
-      }
+    @media (max-width:1024px) {
+      .logo-heading { font-size:36px; top:15px; right:15px; }
     }
-
-    /* Handy / Mobil */
-    @media (max-width: 600px) {
-      .logo-heading {
-        font-size: 22px;
-        top: 10px;
-        right: 10px;
-      }
-    }
-
-    /* Untertitel und Tagline */
-    .subtitle{
-      font-weight:600;
-      font-size:18px;
-      display:block;
-      margin-top:6px;
-      opacity:0.95;
-      position: relative;
-      z-index:1;
-    }
-    .tagline{
-      margin-top:8px;
-      font-size:14px;
-      opacity:0.95;
-      position: relative;
-      z-index:1;
+    @media (max-width:600px) {
+      .logo-heading { font-size:28px; top:10px; right:10px; }
     }
 
     /* Navigation */
-    .main-nav a {
-      text-decoration: none;
-      font-weight: 600;
-      color: var(--text);
-      transition: color 0.3s ease;
+    .main-nav {
+      margin-top:60px;
+      text-align:center;
     }
-    .main-nav a.active {color: var(--accent);}
-    .main-nav a:hover {color: #d9c7b0;} /* etwas dunkleres Beige beim Hover */
+    .main-nav ul {list-style:none; margin:0; padding:0;}
+    .main-nav li {display:inline-block; margin:0 15px;}
+    .main-nav a {
+      text-decoration:none;
+      font-weight:600;
+      color: var(--text);
+      transition:color 0.3s ease;
+    }
+    .main-nav a.active {color: var(--accent); border-bottom:2px solid var(--accent); padding-bottom:2px;}
+    .main-nav a:hover {color:#d9c7b0;}
 
     /* Hero */
-    .hero{
+    .hero {
       background:white;
       border-radius:12px;
       padding:28px;
-      margin-top:-40px;
+      margin-top:-20px;
       box-shadow:0 6px 22px rgba(0,0,0,0.06);
       text-align:center;
     }
-    .hero h2{
+    .hero h2 {
       margin:0 0 12px 0;
       font-size:22px;
-      color:var(--text);
     }
-    .hero p{
-      margin:0 0 18px 0;
-      color:var(--text);
-    }
-    .cta{
+    .hero p {margin:0 0 18px 0;}
+    .cta {
       display:inline-block;
       padding:12px 24px;
       border-radius:10px;
@@ -109,33 +94,24 @@
       font-weight:600;
       box-shadow:0 6px 14px rgba(245,230,211,0.4);
       text-decoration:none;
-      transition: all 0.3s ease;
+      transition:all 0.3s ease;
     }
-    .cta:hover{
-      transform: translateY(-2px);
-      background: #e9dccb;
-    }
+    .cta:hover {transform:translateY(-2px); background:#e9dccb;}
 
-    /* Dienstleistungen */
-    .services{
+    /* Services */
+    .services {
       margin-top:20px;
       background:white;
       padding:18px;
       border-radius:10px;
     }
-    .services h3{
-      margin-top:0;
-      font-family: 'Quicksand', sans-serif;
-      font-size:24px;
-    }
-
-    /* Services in Spalten */
+    .services h3 {margin-top:0; font-size:24px;}
     .service-items {
-      display: flex;
-      flex-wrap: wrap;          
-      gap: 16px;
-      justify-content: center;  
-      align-items: flex-start;
+      display:flex;
+      flex-wrap:wrap;
+      gap:16px;
+      justify-content:center;
+      align-items:flex-start;
     }
     .service-item {
       background:white;
@@ -145,73 +121,48 @@
       max-width:220px;
       flex:1 1 200px;
       box-shadow:0 4px 12px rgba(0,0,0,0.08);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      position: relative;
-      text-decoration: none;
+      transition:transform 0.3s ease, box-shadow 0.3s ease;
+      text-decoration:none;
       color: var(--text);
-      overflow:hidden;
-      display:block;
     }
     .service-item img {
       max-width:100%;
       border-radius:10px;
       margin-bottom:12px;
-      transition: transform 0.3s ease;
       display:block;
     }
-    .service-item::after {
-      content:'';
-      position:absolute;
-      bottom:0; left:0;
-      width:100%; height:100%;
-      background: linear-gradient(to top, rgba(245,230,211,0.2), rgba(245,230,211,0));
-      opacity:0;
-      border-radius:12px;
-      transition: opacity 0.4s ease, transform 0.4s ease;
-      transform: translateY(20px);
-      pointer-events: none;
-    }
     .service-item:hover {
-      transform: scale(1.03);
-      box-shadow:0 10px 25px rgba(0, 0, 0, 0.2);
+      transform:scale(1.03);
+      box-shadow:0 10px 25px rgba(0,0,0,0.2);
     }
-    .service-item:hover::after {
-      opacity:1;
-      transform: translateY(0);
-    }
-    .service-item h4, .service-item p {
-      transition: transform 0.3s ease, color 0.3s ease;
-    }
-    .service-item:hover h4 {color: var(--accent); transform: translateY(-2px);}
-    .service-item:hover p {color: #555; transform: translateY(-1px);}
+    .service-item:hover h4 {color: var(--accent);}
+    .service-item:hover p {color:#555;}
 
     /* Galerie */
     .gallery {margin-top:32px;}
     .gallery .images {
-      display: flex;
-      flex-wrap: wrap;          
+      display:flex;
+      flex-wrap:wrap;
       gap:16px;
-      justify-content: center;  
-      align-items: flex-start;
+      justify-content:center;
     }
     .gallery img {
-      width: 100px;
-      height: 100px;
-      object-fit: cover;
-      border-radius: 10px;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      width:100px; height:100px;
+      object-fit:cover;
+      border-radius:10px;
+      box-shadow:0 3px 8px rgba(0,0,0,0.1);
+      transition:transform 0.3s ease, box-shadow 0.3s ease;
     }
     .gallery img:hover {
-      transform: scale(2.0);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.25);
-      z-index: 10;
-      position: relative;
+      transform:scale(2.0);
+      box-shadow:0 8px 24px rgba(0,0,0,0.25);
+      position:relative;
+      z-index:10;
     }
 
     /* Bewertungen */
     .reviews blockquote {
-      background: var(--accent);
+      background:var(--accent);
       padding:16px;
       border-radius:12px;
       margin:12px 0;
@@ -220,52 +171,122 @@
     }
 
     /* Kontakt */
-    .contact{margin-top:16px; padding:16px; background:transparent; color:var(--text);}
+    .contact {margin-top:16px; padding:16px;}
 
     /* Footer */
-    .site-footer{margin-top:36px; padding:18px 0; text-align:center; color:#666; font-size:14px;}
+    .site-footer {margin-top:36px; padding:18px 0; text-align:center; color:#666; font-size:14px;}
 
-    /* Bottom-Bar fixiert */
+    /* Bottom-Bar */
     .bottom-bar {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      background: #fff;
-      box-shadow: 0 -2px 8px rgba(0,0,0,0.1);
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      padding: 10px 0;
-      z-index: 999;
+      position:fixed;
+      bottom:0; left:0;
+      width:100%;
+      background:#fff;
+      box-shadow:0 -2px 8px rgba(0,0,0,0.1);
+      display:flex;
+      justify-content:center;
+      gap:10px;
+      padding:10px 0;
+      z-index:999;
     }
     .bottom-bar .bottom-btn {
-      text-decoration: none;
-      padding: 8px 16px;
-      border-radius: 8px;
-      background: var(--accent);
+      text-decoration:none;
+      padding:8px 16px;
+      border-radius:8px;
+      background:var(--accent);
       color: var(--text);
-      font-weight: 600;
-      font-family: "Quicksand", sans-serif;
-      transition: background 0.3s ease, transform 0.2s ease;
+      font-weight:600;
+      font-family:'Quicksand', sans-serif;
+      transition:background 0.3s ease, transform 0.2s ease;
     }
-    .bottom-bar .bottom-btn:hover {
-      background: #e9dccb;
-      transform: translateY(-2px);
-    }
-
-    /* Responsive Anpassung */
-    @media (max-width:600px){
-      .service-items {flex-direction: column; gap:12px;}
-      .hero h2{font-size:18px;}
-    }
-    @media (max-width:480px){
-      .gallery .images {flex-direction: column; gap:12px;}
-      .bottom-bar {flex-direction: row; gap:6px; padding:8px 0;}
-      .bottom-bar .bottom-btn {padding:6px 10px; font-size:14px;}
-    }
+    .bottom-bar .bottom-btn:hover {background:#e9dccb; transform:translateY(-2px);}
   </style>
 </head>
 <body>
 
-     
+  <!-- Header -->
+  <header class="site-header">
+    <h1 class="logo-heading">SZ Stylings</h1>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="event-styling.html">Events</a></li>
+        <li><a href="shooting.html">Shooting</a></li>
+        <li><a href="kids.html">Kids</a></li>
+        <li><a href="special-makeup.html">Special Looks</a></li>
+        <li><a href="contact.html">Kontakt</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+
+    <!-- Hero -->
+    <section class="hero">
+      <h2>Dein Look — perfekt in Szene gesetzt!</h2>
+      <p>Ich kreiere das passende Make-up & Hairstyling für dich.</p>
+      <a class="cta" href="mailto:info@szstylings.de">Jetzt Termin sichern</a>
+    </section>
+
+    <!-- Galerie -->
+    <section class="gallery">
+      <h3>Galerie</h3>
+      <div class="images">
+        <img src="images/Homepage1.jpg" alt="Makeup Beispiel">
+        <img src="images/Homepage2.jpg" alt="Hair Styling">
+      </div>
+    </section>
+
+    <!-- Dienstleistungen -->
+    <section class="services">
+      <h3>Services</h3>
+      <div class="service-items">
+        <a class="service-item" href="shooting.html">
+          <img src="images/specialmakeup1.jpg" alt="Beauty Shooting">
+          <h4>Styling für Shootings</h4>
+          <p>Professionelles Styling für Fotoshootings, Social Media oder Mode-Shootings – kreativ und modern.</p>
+        </a>
+        <a class="service-item" href="event-styling.html">
+          <img src="images/specialmakeup2.jpg" alt="Event Styling Beispiel">
+          <h4>Eventstyling</h4>
+          <p>Perfektes Styling für Geburtstage, Jubiläen oder besondere Anlässe – passend zum Outfit und Anlass.</p>
+        </a>
+        <a class="service-item" href="special-effects.html">
+          <img src="images/Wunde.jpg" alt="Special Effects Make-up">
+          <h4>Special Effects Make-up</h4>
+          <p>Kreative Looks für Halloween, Karneval, Filmproduktionen oder besondere Events – gruselig oder bunt.</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- Kundenbewertungen -->
+    <section class="reviews">
+      <h3>Das sagen meine Kunden</h3>
+      <blockquote>"Ich war begeistert von meinem Hochzeits-Make-up – einfach perfekt!" – Mareike S.</blockquote>
+      <blockquote>"Tolles Styling für mein Shooting, sehr professionell!" – Syila M.</blockquote>
+      <blockquote>"Meine Tochter war begeistert vom Kinderschminken!" – Anna L.</blockquote>
+    </section>
+
+    <!-- Kontakt -->
+    <section class="contact">
+      <h3>Kontakt</h3>
+      <p>Schreib mir unter: <a href="mailto:info@szstylings.de">info@szstylings.de</a></p>
+      <p>Oder direkt per WhatsApp: <a href="https://wa.me/DEINE_NUMMER">Hier klicken</a></p>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <p>© 2025 SZ Stylings — All Stylings • Mobile in Sachsen & Brandenburg</p>
+    <p><a href="impressum.html">Impressum</a> | <a href="datenschutz.html">Datenschutz</a></p>
+  </footer>
+
+  <!-- Bottom Bar -->
+  <div class="bottom-bar">
+    <a href="mailto:info@szstylings.de" class="bottom-btn">Email</a>
+    <a href="https://www.instagram.com/deinprofil" target="_blank" class="bottom-btn">Instagram</a>
+  </div>
+
+</body>
+</html>
