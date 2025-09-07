@@ -1,8 +1,8 @@
 :root{
-  --primary: #1a1a1a;         /* Haupttext */
-  --accent: #ffd1e0;          /* Rosa Akzent */
-  --bg: #ffffff;              /* Hintergrund */
-  --text: #1a1a1a;            /* Textfarbe */
+  --primary: #1a1a1a;         
+  --accent: #ffd1e0;          
+  --bg: #ffffff;              
+  --text: #1a1a1a;            
 }
 
 /* Grundstruktur */
@@ -169,7 +169,7 @@ body{
   box-shadow:0 8px 24px rgba(0,0,0,0.2);
 }
 
-/* Bewertungen */
+/* Bewertungen Slider */
 .reviews{
   margin-top:60px;
 }
@@ -179,14 +179,49 @@ body{
   text-align:center;
   font-weight:700;
 }
-.reviews blockquote{
+.review-slider{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  position:relative;
+}
+.slide-btn{
   background: var(--accent);
-  padding:20px;
-  border-radius:20px;
-  margin:16px auto;
-  font-style:italic;
+  border:none;
+  border-radius:50%;
+  width:40px;
+  height:40px;
+  font-size:20px;
+  cursor:pointer;
+  transition: transform 0.3s ease;
+}
+.slide-btn:hover{
+  transform: scale(1.1);
+}
+.slides{
+  display:flex;
+  overflow:hidden;
   max-width:600px;
-  line-height:1.6;
+}
+.review-card{
+  min-width:100%;
+  background: var(--accent);
+  padding:24px;
+  margin:0 10px;
+  border-radius:20px;
+  text-align:center;
+  box-shadow:0 8px 20px rgba(0,0,0,0.15);
+  flex-shrink:0;
+  transition: transform 0.3s ease;
+}
+.review-card p{
+  font-style:italic;
+  margin-bottom:10px;
+}
+.review-card span{
+  font-weight:600;
+  font-style:normal;
 }
 
 /* Footer */
