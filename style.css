@@ -1,6 +1,6 @@
 :root{
   --primary: #1a1a1a;         
-  --accent: #ffd1e0;          
+  --accent: #f5e6d7;          /* Pastellbeige statt Rosa */         
   --bg: #ffffff;              
   --text: #1a1a1a;            
 }
@@ -83,12 +83,12 @@ body{
   background: var(--accent);
   color: var(--text);
   font-weight:600;
-  box-shadow:0 6px 14px rgba(255,111,163,0.18);
+  box-shadow:0 6px 14px rgba(245,230,215,0.5);
   text-decoration:none;
   transition: all 0.3s ease;
 }
 .cta:hover{
-  background:#ffccd8;
+  background:#f7e8db;
   transform: translateY(-2px);
 }
 
@@ -202,10 +202,11 @@ body{
 .slides{
   display:flex;
   overflow:hidden;
-  max-width:600px;
+  max-width:100%;
+  transition: transform 0.5s ease-in-out; /* Sanfter Sliding-Effekt */
 }
 .review-card{
-  min-width:100%;
+  min-width:33.3333%; /* 3 Karten nebeneinander auf Desktop */
   background: var(--accent);
   padding:24px;
   margin:0 10px;
@@ -265,7 +266,7 @@ body{
   transition:all 0.3s ease;
 }
 .bottom-bar .bottom-btn:hover{
-  background:#ffccd8;
+  background:#f7e8db;
   transform:translateY(-2px);
 }
 
@@ -278,6 +279,7 @@ body{
   .hero{padding:30px 20px;}
   .service-items{flex-direction:column; gap:20px;}
   .gallery img{width:180px;height:180px;}
+  .review-card{min-width:100%; margin:0 5px;} /* 1 Karte pro Slide mobil */
 }
 @media(max-width:480px){
   .site-header h1{font-size:32px;}
@@ -287,3 +289,5 @@ body{
   .gallery img{width:150px;height:150px;}
   .bottom-bar .bottom-btn{padding:6px 12px;font-size:14px;}
 }
+
+ 
