@@ -10,37 +10,201 @@
 
   <!-- CSS -->
   <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* Hero-Bereich */
+    .hero-container {
+      position: relative;
+      text-align: center;
+      color: white;
+      height: 80vh;
+    }
+
+    .hero-bg {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.5; /* Hintergrundbild leicht transparent */
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+
+    .hero-text {
+      position: relative;
+      z-index: 2;
+      padding: 2rem;
+    }
+
+    /* Allgemeines Layout */
+    main {
+      background-color: #fff;
+      padding: 2rem 0;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Galerie */
+    .gallery img {
+      width: 30%;
+      margin: 1%;
+      border-radius: 8px;
+    }
+
+    /* Services */
+    .service-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: space-between;
+    }
+
+    .service-item {
+      flex: 1 1 45%;
+      background-color: #f8f8f8;
+      padding: 1rem;
+      border-radius: 8px;
+      text-align: center;
+      transition: transform 0.3s ease;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .service-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .service-item img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Slider */
+    .review-slider {
+      position: relative;
+      overflow: hidden;
+      margin-top: 2rem;
+    }
+
+    .slides-wrapper {
+      overflow: hidden;
+      width: 100%;
+    }
+
+    .slides {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .review-card {
+      flex: 0 0 33.3333%;
+      padding: 1rem;
+      box-sizing: border-box;
+      background-color: #f8f8f8;
+      border-radius: 8px;
+      margin: 0 0.5rem;
+      text-align: center;
+    }
+
+    .slide-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.5);
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      font-size: 1.5rem;
+      border-radius: 4px;
+      z-index: 3;
+    }
+
+    #prev { left: 0; }
+    #next { right: 0; }
+
+    /* Footer */
+    .site-footer {
+      background-color: #222;
+      color: white;
+      text-align: center;
+      padding: 1rem 0;
+    }
+
+    .bottom-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+      background-color: #fff;
+      border-top: 1px solid #ccc;
+      padding: 0.5rem 0;
+    }
+
+    .bottom-btn {
+      text-decoration: none;
+      font-size: 1.2rem;
+      color: #222;
+    }
+  </style>
 </head>
 <body>
 
   <!-- Header / Hero -->
   <header class="site-header">
-    <div class="container">
-      <h1>MAKE UP - HAIR - STYLING<span class="subtitle">Für alle Events</span></h1>
-      <nav class="main-nav">
-        <ul>
-          <li><a href="index.html" class="active">Home</a></li>
-          <li><a href="wedding-styling.html">Brautstyling</a></li>
-          <li><a href="stylingshooting.html">Shootings</a></li>
-          <li><a href="eventstyling.html">Eventstyling</a></li>
-          <li><a href="special-makeup.html">Special Looks</a></li>
-          <li><a href="contact.html">Kontakt</a></li>
-        </ul>
-      </nav>
+    <div class="hero-container">
+      <img src="images/hero-bg.jpg" alt="Hero Hintergrund" class="hero-bg">
+      <div class="hero-text">
+        <h1>MAKE UP - HAIR - STYLING<span class="subtitle">Für alle Events</span></h1>
+        <nav class="main-nav">
+          <ul>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="wedding-styling.html">Brautstyling</a></li>
+            <li><a href="stylingshooting.html">Shootings</a></li>
+            <li><a href="eventstyling.html">Eventstyling</a></li>
+            <li><a href="special-makeup.html">Special Looks</a></li>
+            <li><a href="contact.html">Kontakt</a></li>
+          </ul>
+        </nav>
+      </div>
     </div>
   </header>
 
-  <main class="container">
+  <main>
 
     <!-- Hero Text -->
-    <section class="hero">
+    <section class="hero container">
       <h2>Dein Look — perfekt in Szene gesetzt!</h2>
       <p>Ob Hochzeit, Fotoshooting oder besonderes Event – ich kreiere das passende Make-up & Hairstyling für dich</p>
       <a class="cta" href="mailto:info@makeupandhair.com">Jetzt Termin sichern</a>
     </section>
 
-    <!-- Dienstleistungen -->
-    <section class="services">
+    <!-- Galerie zuerst -->
+    <section class="gallery container">
+      <h3>Galerie</h3>
+      <div class="images">
+        <figure>
+          <img src="images/Homepage2.jpg" alt="Makeup Kit">
+          <img src="images/wedding3.jpg" alt="Makeup Kit">
+          <img src="images/specialmakeup2.jpg" alt="Makeup Kit">
+          <img src="images/Homepage1.jpg" alt="Makeup Artist">
+          <img src="images/Hair-Styling.jpg" alt="Hair Styling">
+          <img src="images/specialmakeup1.jpg" alt="Makeup Kit">
+        </figure>
+      </div>
+    </section>
+
+    <!-- Services danach -->
+    <section class="services container">
       <h3>Services</h3>
       <p>Professionelle Stylings für jeden Anlass. Lass dich inspirieren:</p>
       <div class="service-items">
@@ -67,38 +231,25 @@
       </div>
     </section>
 
-    <!-- Galerie -->
-    <section class="gallery">
-      <h3>Galerie</h3>
-      <div class="images">
-        <figure>
-          <img src="images/Homepage2.jpg" alt="Makeup Kit">
-          <img src="images/wedding3.jpg" alt="Makeup Kit">
-          <img src="images/specialmakeup2.jpg" alt="Makeup Kit">
-          <img src="images/Homepage1.jpg" alt="Makeup Artist">
-          <img src="images/Hair-Styling.jpg" alt="Hair Styling">
-          <img src="images/specialmakeup1.jpg" alt="Makeup Kit">
-        </figure>
-      </div>
-    </section>
-
     <!-- Kundenbewertungen Slider -->
-    <section class="reviews">
+    <section class="reviews container">
       <h3>Was Kunden sagen</h3>
       <div class="review-slider">
         <button class="slide-btn" id="prev">&#10094;</button>
-        <div class="slides">
-          <div class="review-card">
-            <p>"Ich war begeistert von meinem Hochzeits-Make-up – einfach perfekt!"</p>
-            <span>– Mareike S.</span>
-          </div>
-          <div class="review-card">
-            <p>"Tolles Styling für mein Shooting, sehr professionell!"</p>
-            <span>– Syila M.</span>
-          </div>
-          <div class="review-card">
-            <p>"Meine Tochter war begeistert vom Kinderschminken!"</p>
-            <span>– Anna L.</span>
+        <div class="slides-wrapper">
+          <div class="slides">
+            <div class="review-card">
+              <p>"Ich war begeistert von meinem Hochzeits-Make-up – einfach perfekt!"</p>
+              <span>– Mareike S.</span>
+            </div>
+            <div class="review-card">
+              <p>"Tolles Styling für mein Shooting, sehr professionell!"</p>
+              <span>– Syila M.</span>
+            </div>
+            <div class="review-card">
+              <p>"Meine Tochter war begeistert vom Kinderschminken!"</p>
+              <span>– Anna L.</span>
+            </div>
           </div>
         </div>
         <button class="slide-btn" id="next">&#10095;</button>
@@ -127,15 +278,20 @@
     const slides = document.querySelector('.slides');
     const slideCards = document.querySelectorAll('.review-card');
     let index = 0;
+    const visibleCards = 3;
 
     document.getElementById('next').addEventListener('click', () => {
-      index = (index + 1) % slideCards.length;
-      slides.style.transform = `translateX(-${index * 100}%)`;
+      if(index < slideCards.length - visibleCards) {
+        index++;
+        slides.style.transform = `translateX(-${index * (100 / visibleCards)}%)`;
+      }
     });
 
     document.getElementById('prev').addEventListener('click', () => {
-      index = (index - 1 + slideCards.length) % slideCards.length;
-      slides.style.transform = `translateX(-${index * 100}%)`;
+      if(index > 0) {
+        index--;
+        slides.style.transform = `translateX(-${index * (100 / visibleCards)}%)`;
+      }
     });
   </script>
 
