@@ -16,7 +16,6 @@
       --text: #000000;
     }
 
-    /* Grundstruktur */
     * {box-sizing:border-box;}
     body {
       margin:0;
@@ -27,11 +26,11 @@
     }
     .container {max-width:920px; margin:0 auto; padding:24px;}
 
-    /* Header mit Bild */
+    /* Header mit Hintergrundbild */
     .site-header {
       position: relative;
       width: 100%;
-      height: 280px; /* Höhe anpassen */
+      height: 280px;
       overflow: hidden;
     }
     .site-header::before {
@@ -40,11 +39,9 @@
       top: 0; left: 0;
       width: 100%; height: 100%;
       background: url('images/header-bg.png') center/cover no-repeat;
-      opacity: 0.25; /* leicht transparent */
+      opacity: 0.25;
       z-index: 0;
     }
-
-    /* Logo Überschrift SZ Stylings */
     .logo-heading {
       position: absolute;
       top: 20px;
@@ -53,19 +50,16 @@
       font-weight: normal;
       font-size: 56px;
       color: #333333;
-      text-align: right;
-      z-index: 10; /* über dem Bild */
+      z-index: 10;
       text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
     }
-    @media (max-width:1024px) {.logo-heading {font-size: 40px; top:15px; right:20px;}}
-    @media (max-width:600px) {.logo-heading {font-size: 28px; top:10px; right:15px;}}
 
     /* Navigation */
     .main-nav {
-      background: white;
       text-align:center;
-      padding: 14px 0;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      background:#fff;
+      padding: 12px 0;
+      box-shadow:0 2px 6px rgba(0,0,0,0.05);
     }
     .main-nav ul {list-style:none; margin:0; padding:0;}
     .main-nav li {display:inline-block; margin:0 15px;}
@@ -75,11 +69,7 @@
       color: var(--text);
       transition:color 0.3s ease;
     }
-    .main-nav a.active {
-      color: var(--accent); 
-      border-bottom:2px solid var(--accent); 
-      padding-bottom:2px;
-    }
+    .main-nav a.active {color: var(--accent); border-bottom:2px solid var(--accent); padding-bottom:2px;}
     .main-nav a:hover {color:#d9c7b0;}
 
     /* Hero */
@@ -119,7 +109,6 @@
       flex-wrap:wrap;
       gap:16px;
       justify-content:center;
-      align-items:flex-start;
     }
     .service-item {
       background:white;
@@ -144,7 +133,6 @@
       box-shadow:0 10px 25px rgba(0,0,0,0.2);
     }
     .service-item:hover h4 {color: var(--accent);}
-    .service-item:hover p {color:#555;}
 
     /* Galerie */
     .gallery {margin-top:32px;}
@@ -168,14 +156,51 @@
       z-index:10;
     }
 
-    /* Bewertungen */
+    /* Bewertungs-Slider */
+    .reviews {
+      margin-top: 40px;
+      text-align: center;
+      position: relative;
+    }
+    .review-slider {
+      position: relative;
+      max-width: 600px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+    .review-slider .slide {
+      display: none;
+      opacity: 0;
+      transition: opacity 0.8s ease;
+    }
+    .review-slider .slide.active {
+      display: block;
+      opacity: 1;
+    }
     .reviews blockquote {
-      background:var(--accent);
-      padding:16px;
-      border-radius:12px;
-      margin:12px 0;
-      font-style:italic;
-      color:var(--text);
+      background: var(--accent);
+      padding: 20px;
+      border-radius: 12px;
+      margin: 0;
+      font-style: italic;
+      color: var(--text);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+    }
+    .slider-dots {
+      margin-top: 12px;
+    }
+    .slider-dots .dot {
+      height: 10px;
+      width: 10px;
+      margin: 0 5px;
+      background: #ccc;
+      border-radius: 50%;
+      display: inline-block;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .slider-dots .dot.active {
+      background: var(--accent);
     }
 
     /* Kontakt */
@@ -212,7 +237,7 @@
 </head>
 <body>
 
-  <!-- Header -->
+  <!-- Header mit Bild -->
   <header class="site-header">
     <h1 class="logo-heading">SZ Stylings</h1>
   </header>
@@ -269,12 +294,25 @@
       </div>
     </section>
 
-    <!-- Kundenbewertungen -->
+    <!-- Kundenbewertungen (Slider) -->
     <section class="reviews">
       <h3>Das sagen meine Kunden</h3>
-      <blockquote>"Ich war begeistert von meinem Hochzeits-Make-up – einfach perfekt!" – Mareike S.</blockquote>
-      <blockquote>"Tolles Styling für mein Shooting, sehr professionell!" – Syila M.</blockquote>
-      <blockquote>"Meine Tochter war begeistert vom Kinderschminken!" – Anna L.</blockquote>
+      <div class="review-slider">
+        <div class="slide active">
+          <blockquote>"Ich war begeistert von meinem Hochzeits-Make-up – einfach perfekt!" – Mareike S.</blockquote>
+        </div>
+        <div class="slide">
+          <blockquote>"Tolles Styling für mein Shooting, sehr professionell!" – Syila M.</blockquote>
+        </div>
+        <div class="slide">
+          <blockquote>"Meine Tochter war begeistert vom Kinderschminken!" – Anna L.</blockquote>
+        </div>
+      </div>
+      <div class="slider-dots">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
     </section>
 
     <!-- Kontakt -->
@@ -298,6 +336,33 @@
     <a href="https://www.instagram.com/deinprofil" target="_blank" class="bottom-btn">Instagram</a>
   </div>
 
+  <!-- Slider Script -->
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.review-slider .slide');
+    const dots = document.querySelectorAll('.slider-dots .dot');
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === index);
+        dots[i].classList.toggle('active', i === index);
+      });
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    }
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        currentSlide = index;
+        showSlide(currentSlide);
+      });
+    });
+
+    setInterval(nextSlide, 5000);
+  </script>
+
 </body>
 </html>
-
