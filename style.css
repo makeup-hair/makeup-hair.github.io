@@ -39,39 +39,34 @@ body{
   100% { background-position: center 0%; }
 }
 
-/* Logo Überschrift SZ Stylings oben rechts */
+/* Logo Überschrift SZ Stylings wie Lyve Weddings */
 .logo-heading {
-  position: absolute; /* oben rechts fixieren */
+  position: absolute;
   top: 20px;
   right: 20px;
-  font-family: 'Playfair Display', serif;
-  font-weight: 700;
-  font-size: 48px; /* Desktop-Größe */
+  font-family: 'Quicksand', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 700; /* bold */
+  font-size: 36px; /* Desktop */
+  color: #333333; /* dunkles Grau */
   text-align: right;
-  background: linear-gradient(90deg, #FFB6C1, #C19FFF);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
   z-index: 10;
 }
 
 /* Tablet */
-@media (max-width: 1024px) {
+@media (max-width:1024px){
   .logo-heading {
-    font-size: 36px;
+    font-size: 28px;
     top: 15px;
     right: 15px;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
   }
 }
 
 /* Handy / Mobil */
-@media (max-width: 600px) {
+@media (max-width:600px){
   .logo-heading {
-    font-size: 28px;
+    font-size: 22px;
     top: 10px;
     right: 10px;
-    text-shadow: 0.5px 0.5px 1px rgba(0,0,0,0.1);
   }
 }
 
