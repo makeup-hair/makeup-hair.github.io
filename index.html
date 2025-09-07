@@ -6,10 +6,47 @@
   <title>Make up - Hair - Styling</title>
   
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Quicksand:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   
   <!-- CSS -->
   <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* Überschrift SZ Stylings oben rechts */
+    .logo-heading {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 48px;
+      text-align: right;
+      background: linear-gradient(90deg, #FFB6C1, #C19FFF);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    }
+
+    /* Tablet */
+    @media (max-width: 1024px) {
+      .logo-heading {
+        font-size: 36px;
+        top: 15px;
+        right: 15px;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+      }
+    }
+
+    /* Handy / Mobil */
+    @media (max-width: 600px) {
+      .logo-heading {
+        font-size: 28px;
+        top: 10px;
+        right: 10px;
+        text-shadow: 0.5px 0.5px 1px rgba(0,0,0,0.1);
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -17,8 +54,7 @@
   <header class="site-header">
     <div class="container">
       <h1 class="logo-heading">
-  <span class="sz">SZ</span>
-  <span class="stylings">Stylings</span>
+        SZ Stylings
       </h1>
       <span class="subtitle">FÜR ALLE EVENTS</span>
       <p class="tagline">Professionelles Make up & Hairstyling für Hochzeiten, Events & Shootings</p>
