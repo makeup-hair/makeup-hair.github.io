@@ -39,28 +39,48 @@ body{
   100% { background-position: center 0%; }
 }
 
-/* Text über Header */
-.site-header h1, .subtitle, .tagline, .main-nav {
+/* Logo Überschrift SZ Stylings */
+.logo-title {
+  margin:0;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 6px;
   position: relative;
   z-index: 1;
 }
-.site-header h1{
-  margin:0;
-  font-size:36px;
-  font-family: Cambria, "Times New Roman", serif;
-  letter-spacing:0.5px;
+
+.logo-title .sz {
+  font-family: 'Great Vibes', cursive;
+  font-size: 72px; /* sehr groß */
+  line-height: 1;
+  color: var(--accent); /* optional Highlight */
 }
+
+.logo-title .stylings {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 24px; /* kleiner als SZ */
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--text);
+}
+
+/* Untertitel und Tagline */
 .subtitle{
   font-weight:600;
   font-size:18px;
   display:block;
   margin-top:6px;
   opacity:0.95;
+  position: relative;
+  z-index:1;
 }
 .tagline{
   margin-top:8px;
   font-size:14px;
   opacity:0.95;
+  position: relative;
+  z-index:1;
 }
 
 /* Navigation */
@@ -151,7 +171,7 @@ body{
   display:block;
 }
 .service-item img {
-  max-width:100%;           /* wieder wie vorher */
+  max-width:100%;
   border-radius:10px;
   margin-bottom:12px;
   transition: transform 0.3s ease;
@@ -192,19 +212,16 @@ body{
   justify-content: center;  
   align-items: flex-start;
 }
-
-/* Galerie-Bilder quadratisch und Hover-Effekt */
 .gallery img {
-  width: 100px;         /* feste Breite */
-  height: 100px;        /* feste Höhe */
-  object-fit: cover;    /* Bild wird zugeschnitten */
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
   border-radius: 10px;
   box-shadow: 0 3px 8px rgba(0,0,0,0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
 .gallery img:hover {
-  transform: scale(2.0); /* stark vergrößern beim Hover */
+  transform: scale(2.0);
   box-shadow: 0 8px 24px rgba(0,0,0,0.25);
   z-index: 10;
   position: relative;
@@ -258,11 +275,14 @@ body{
 /* Responsive Anpassung */
 @media (max-width:600px){
   .service-items {flex-direction: column; gap:12px;}
-  .site-header h1{font-size:28px;}
+  .site-header h1, .logo-title .sz{font-size:48px;}
+  .logo-title .stylings{font-size:18px;}
   .hero h2{font-size:18px;}
 }
 @media (max-width:480px){
   .gallery .images {flex-direction: column; gap:12px;}
   .bottom-bar {flex-direction: row; gap:6px; padding:8px 0;}
   .bottom-bar .bottom-btn {padding:6px 10px; font-size:14px;}
+  .logo-title .sz{font-size:36px;}
+  .logo-title .stylings{font-size:16px;}
 }
