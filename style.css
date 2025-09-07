@@ -64,6 +64,34 @@ body{
   line-height: 1.2;
   color: var(--text);
 }
+.logo-heading {
+  position: relative;
+  font-family: 'Arial Black', Arial, sans-serif;
+  margin: 50px;
+}
+
+.logo-heading .sz {
+  font-size: 120px;
+  font-weight: bold;
+  display: inline-block;
+  position: relative;
+  color: #111;
+  z-index: 1;
+}
+
+.logo-heading .stylings {
+  font-size: 50px;
+  font-weight: bold;
+  color: #e63946; /* auffällige Farbe */
+  position: absolute;
+  top: 80px;     /* auf die untere Linie von Z */
+  left: 45px;    /* horizontal mittig über Z */
+  transform: rotate(-10deg); /* leichte Schräge */
+  z-index: 2;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
 
 /* Untertitel und Tagline */
 .subtitle{
