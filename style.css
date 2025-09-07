@@ -1,4 +1,4 @@
- :root{
+:root{
   --primary: #000000; 
   --accent: #ffd1e0;
   --bg: #f8f8f8;
@@ -9,10 +9,10 @@
 *{box-sizing:border-box;}
 body{
   margin:0;
-  font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family: 'Raleway', "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   background:var(--bg);
   color:var(--text);
-  line-height:1.5;
+  line-height:1.6;
 }
 .container{max-width:920px;margin:0 auto;padding:24px}
 
@@ -47,7 +47,7 @@ body{
 .site-header h1{
   margin:0;
   font-size:36px;
-  font-family: Cambria, "Times New Roman", serif;
+  font-family: 'Lora', serif;
   letter-spacing:0.5px;
 }
 .subtitle{
@@ -56,11 +56,13 @@ body{
   display:block;
   margin-top:6px;
   opacity:0.95;
+  font-family: 'Raleway', sans-serif;
 }
 .tagline{
   margin-top:8px;
   font-size:14px;
   opacity:0.95;
+  font-family: 'Raleway', sans-serif;
 }
 
 /* Navigation */
@@ -74,6 +76,7 @@ body{
 .main-nav a {
   text-decoration: none;
   font-weight: 600;
+  font-family: 'Raleway', sans-serif;
   color: var(--text);
   transition: color 0.3s ease;
 }
@@ -92,10 +95,12 @@ body{
 .hero h2{
   margin:0 0 12px 0;
   font-size:22px;
+  font-family: 'Lora', serif;
   color:var(--text);
 }
 .hero p{
   margin:0 0 18px 0;
+  font-family: 'Raleway', sans-serif;
   color:var(--text);
 }
 .cta{
@@ -105,6 +110,7 @@ body{
   background:var(--accent);
   color: var(--text);
   font-weight:600;
+  font-family: 'Raleway', sans-serif;
   box-shadow:0 6px 14px rgba(255,111,163,0.18);
   text-decoration:none;
   transition: all 0.3s ease;
@@ -123,7 +129,7 @@ body{
 }
 .services h3{
   margin-top:0;
-  font-family: Cambria, "Times New Roman", serif;
+  font-family: 'Lora', serif;
   font-size:24px;
 }
 
@@ -151,7 +157,7 @@ body{
   display:block;
 }
 .service-item img {
-  max-width:100%;           /* wieder wie vorher */
+  max-width:100%;
   border-radius:10px;
   margin-bottom:12px;
   transition: transform 0.3s ease;
@@ -177,7 +183,12 @@ body{
   opacity:1;
   transform: translateY(0);
 }
-.service-item h4, .service-item p {
+.service-item h4 {
+  font-family: 'Lora', serif;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+.service-item p {
+  font-family: 'Raleway', sans-serif;
   transition: transform 0.3s ease, color 0.3s ease;
 }
 .service-item:hover h4 {color: var(--accent); transform: translateY(-2px);}
@@ -195,16 +206,15 @@ body{
 
 /* Galerie-Bilder quadratisch und Hover-Effekt */
 .gallery img {
-  width: 100px;         /* feste Breite */
-  height: 100px;        /* feste Höhe */
-  object-fit: cover;    /* Bild wird zugeschnitten */
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
   border-radius: 10px;
   box-shadow: 0 3px 8px rgba(0,0,0,0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
 .gallery img:hover {
-  transform: scale(2.0); /* stark vergrößern beim Hover */
+  transform: scale(2.0);
   box-shadow: 0 8px 24px rgba(0,0,0,0.25);
   z-index: 10;
   position: relative;
@@ -217,14 +227,28 @@ body{
   border-radius:12px;
   margin:12px 0;
   font-style:italic;
+  font-family: 'Raleway', sans-serif;
   color:var(--text);
 }
 
 /* Kontakt */
-.contact{margin-top:16px; padding:16px; background:transparent; color:var(--text);}
+.contact{
+  margin-top:16px;
+  padding:16px;
+  background:transparent;
+  color:var(--text);
+  font-family: 'Raleway', sans-serif;
+}
 
 /* Footer */
-.site-footer{margin-top:36px; padding:18px 0; text-align:center; color:#666; font-size:14px;}
+.site-footer{
+  margin-top:36px;
+  padding:18px 0;
+  text-align:center;
+  color:#666;
+  font-size:14px;
+  font-family: 'Raleway', sans-serif;
+}
 
 /* Bottom-Bar fixiert */
 .bottom-bar {
@@ -247,7 +271,7 @@ body{
   background: var(--accent);
   color: var(--text);
   font-weight: 600;
-  font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family: 'Raleway', sans-serif;
   transition: background 0.3s ease, transform 0.2s ease;
 }
 .bottom-bar .bottom-btn:hover {
