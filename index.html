@@ -6,25 +6,32 @@
   <title>SZ Stylings</title>
   
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Quicksand:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&family=Italianno&display=swap" rel="stylesheet">
   
-  <!-- CSS -->
-  <link rel="stylesheet" href="style.css">
-
   <style>
-    /* Überschrift SZ Stylings oben mittig */
+    :root{
+      --primary: #000000; 
+      --accent: #f5e6d3; /* pastell-beige */
+      --bg: #f8f8f8;
+      --text: #000000;
+    }
+
+    /* Allgemeine Schriftart für alles außer Logo */
+    body, h2, h3, h4, h5, h6, p, span, a, li {
+      font-family: 'Quicksand', sans-serif;
+    }
+
+    /* Überschrift SZ Stylings oben rechts mit Italianno */
     .logo-heading {
-      position: absolute,;
+      position: absolute;
       top: 20px;
       right: 20px;
-      font-family: 'Playfair Display', serif;
-      font-weight: 700;
+      font-family: 'Italianno', cursive;
+      font-weight: normal;
       font-size: 48px;
+      color: #333333;
       text-align: right;
-      background: linear-gradient(90deg, #FFB6C1, #C19FFF);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+      z-index: 10;
     }
 
     /* Tablet */
@@ -33,7 +40,6 @@
         font-size: 36px;
         top: 15px;
         right: 15px;
-        text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
       }
     }
 
@@ -43,8 +49,67 @@
         font-size: 28px;
         top: 10px;
         right: 10px;
-        text-shadow: 0.5px 0.5px 1px rgba(0,0,0,0.1);
       }
+    }
+
+    /* Untertitel und Tagline */
+    .subtitle{
+      font-weight:600;
+      font-size:18px;
+      display:block;
+      margin-top:6px;
+      opacity:0.95;
+      position: relative;
+      z-index:1;
+    }
+    .tagline{
+      margin-top:8px;
+      font-size:14px;
+      opacity:0.95;
+      position: relative;
+      z-index:1;
+    }
+
+    /* Navigation */
+    .main-nav a {
+      text-decoration: none;
+      font-weight: 600;
+      color: var(--text);
+      transition: color 0.3s ease;
+    }
+    .main-nav a.active {color: var(--accent);}
+    .main-nav a:hover {color: #d9c7b0;} /* etwas dunkleres Beige beim Hover */
+
+    /* CTA Buttons */
+    .cta{
+      display:inline-block;
+      padding:12px 24px;
+      border-radius:10px;
+      background:var(--accent);
+      color: var(--text);
+      font-weight:600;
+      text-decoration:none;
+      transition: all 0.3s ease;
+    }
+    .cta:hover{
+      transform: translateY(-2px);
+      background: #e9dccb;
+    }
+
+    /* Bottom-Bar Buttons */
+    .bottom-bar .bottom-btn {
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 8px;
+      background: var(--accent);
+      color: var(--text);
+      font-weight: 600;
+      font-family: "Quicksand", sans-serif;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+    .bottom-bar .bottom-btn:hover {
+      background: #e9dccb;
+      transform: translateY(-2px);
     }
   </style>
 </head>
@@ -53,8 +118,8 @@
   <!-- Header -->
   <header class="site-header">
     <div class="container">
-      <h1 class="logo-heading">SZ</h1>
-      <span class="subtitle">Stylings</span>
+      <h1 class="logo-heading">SZ Stylings</h1>
+      <span class="subtitle">Professionelle Stylings</span>
      
       <nav class="main-nav">
         <ul>
@@ -68,81 +133,6 @@
       </nav>
     </div>
   </header>
-
-  <main class="container">
-
-    <!-- Hero -->
-    <section class="hero">
-      <h2>Dein Look — perfekt in Szene gesetzt!</h2>
-      <p>Ich kreiere das passende Make-up & Hairstyling für dich.</p>
-      <a class="cta" href="mailto:info@makeupandhair.com">Jetzt Termin sichern</a>
-    </section>
-
-    <!-- Galerie -->
-    <section class="gallery">
-      <h3>Galerie</h3>
-      <div class="images">
-        <figure>
-          <img src="images/Homepage2.jpg" alt="Hair Styling">
-        <figure>
-          <img src="images/Homepage1.jpg" alt="Makeup Beispiel">
-        </figure>
-      </div>
-
-    </section>
-    <!-- Dienstleistungen -->
-    <section class="services">
-      <h3>Services</h3>
-      <p>Professionelle Stylings für jeden Anlass. Finde das passende für deinen Anlass:</p>
-      <div class="service-items">
-        <a class="service-item" href="special-makeup.html">
-          <img src="images/specialmakeup1.jpg" alt="Beauty Shooting">
-          <h4>Styling für Shootings</h4>
-          <p>Professionelles Styling für Fotoshootings, Social Media oder Mode-Shootings – kreativ und modern.</p>
-        </a>
-        <a class="service-item" href="event-styling.html">
-          <img src="images/specialmakeup2.jpg" alt="Event Styling Beispiel">
-          <h4>Eventstyling</h4>
-          <p>Perfektes Styling für Geburtstage, Jubiläen oder besondere Anlässe – passend zum Outfit und Anlass.</p>
-        </a>
-        <a class="service-item" href="special-effects.html">
-          <img src="images/Wunde.jpg" alt="Special Effects Make-up">
-          <h4>Special Effects Make-up</h4>
-          <p>Kreative Looks für Halloween, Karneval, Filmproduktionen oder besondere Events – gruselig oder bunt.</p>
-        </a>
-      </div>
-    </section>
-
-    <!-- Kundenbewertungen -->
-    <section class="reviews">
-      <h3>Das sagen meine Kunden</h3>
-      <blockquote>"Ich war begeistert von meinem Hochzeits-Make-up – einfach perfekt!" – Mareike S.</blockquote>
-      <blockquote>"Tolles Styling für mein Shooting, sehr professionell!" – Syila M.</blockquote>
-      <blockquote>"Meine Tochter war begeistert vom Kinderschminken!" – Anna L.</blockquote>
-    </section>
-
-    <!-- Kontakt -->
-    <section class="contact">
-      <h3>Kontakt</h3>
-      <p>Schreib mir unter: <a href="mailto:info@makeupandhair.com">info@makeupandhair.com</a></p>
-      <p>Oder direkt per WhatsApp: <a href="https://wa.me/DEINE_NUMMER">Hier klicken</a></p>
-    </section>
-
-  </main>
-
-  <!-- Footer -->
-  <footer class="site-footer">
-    <div class="container">
-      <p>© 2025 MakeupandHair — All Stylings • Mobile in Sachsen & Brandenburg</p>
-      <p><a href="impressum.html">Impressum</a> | <a href="datenschutz.html">Datenschutz</a></p>
-    </div>
-  </footer>
-  
-  <!-- Fixed Bottom Bar -->
-  <div class="bottom-bar">
-    <a href="mailto:info@szstylings.de" class="bottom-btn">Email</a>
-    <a href="https://www.instagram.com/deinprofil" target="_blank" class="bottom-btn">Instagram</a>
-  </div>
 
 </body>
 </html>
