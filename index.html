@@ -1,4 +1,4 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="de">
 <head>
 <meta charset="utf-8">
@@ -28,7 +28,7 @@ body {
 .site-header {
   position: relative;
   width: 100%;
-  height: 220px;
+  height: 140px; /* schlanker Banner auf Desktop */
   overflow: hidden;
   text-align: center;
 }
@@ -38,7 +38,7 @@ body {
   top: 0; left: 0;
   width: 100%; height: 100%;
   background: url('images/header-bg.png') center/cover no-repeat;
-  opacity: 0.2;
+  opacity: 0.1; /* heller/minimalistischer */
   z-index: 0;
 }
 .logo-heading {
@@ -47,8 +47,8 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   font-family: 'Italianno', cursive;
-  font-size: 64px;
-  font-weight: 300; /* dünner */
+  font-size: 52px;     /* kleiner als vorher */
+  font-weight: 100;    /* sehr dünn, minimalistisch */
   color: #000;
   z-index: 10;
   text-align: center;
@@ -236,9 +236,10 @@ body {
   .service-items { flex-direction: column; gap: 12px; }
   .hero h2 { font-size: 18px; }
   .gallery img:hover { transform: scale(1.4); }
+  .site-header { height: 100px; }     /* noch schmaler auf Handy */
+  .logo-heading { font-size: 38px; } /* kleine Schrift auf Handy */
 }
 @media (max-width:480px){
-  /* Galerie bleibt nebeneinander – kein column mehr */
   .bottom-bar { flex-direction: row; gap: 6px; padding: 8px 0; }
   .bottom-bar .bottom-btn { padding: 6px 10px; font-size: 14px; }
   .gallery img { width: 80px; height: 80px; }
