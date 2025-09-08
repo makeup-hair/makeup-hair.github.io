@@ -121,6 +121,40 @@ body {
 .services ul { padding-left: 20px; }
 .services li { margin: 8px 0; }
 
+/* Angebot & Preise (Accordion) */
+.pricing { margin-top: 20px; }
+.pricing h3 { text-align: center; font-weight: normal; margin-bottom: 12px; }
+.accordion-button {
+  background: #ffe4e6;
+  color: #000;
+  cursor: pointer;
+  padding: 14px 20px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 16px;
+  border-radius: 8px;
+  margin-top: 10px;
+  transition: background 0.3s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.accordion-button:hover { background: #ffd6dc; }
+.accordion-button.active { background: #ffd6dc; }
+.accordion-content {
+  padding: 0 20px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  background: #fdfdfd;
+  border-radius: 0 0 8px 8px;
+  margin-bottom: 10px;
+}
+.arrow { transition: transform 0.3s ease; }
+.accordion-button.active .arrow { transform: rotate(90deg); }
+
 /* Galerie */
 .gallery { margin-top: 32px; text-align: center; }
 .gallery h3 { text-align: center; font-weight: normal; }
@@ -221,9 +255,7 @@ body {
   text-decoration: none;
   transition: color 0.3s ease;
 }
-.contact-info a:hover {
-  color: #555;
-}
+.contact-info a:hover { color: #555; }
 
 /* Footer */
 .site-footer { margin-top: 36px; padding: 18px 0; text-align: center; color: #666; font-size: 14px; }
@@ -305,12 +337,34 @@ body {
     </ul>
   </section>
 
+  <!-- Neuer Abschnitt: Angebot & Preise -->
+  <section class="pricing">
+    <h3>Angebot & Preise</h3>
+
+    <div class="accordion">
+      <button class="accordion-button">Make-up für dein Event <span class="arrow">&#9656;</span></button>
+      <div class="accordion-content">
+        <p>Make-up für dein Event ab 120€. Ich komme gerne an einen Ort deiner Wahl. Preise beziehen sich inklusive: Kennenlerngespräch telefonisch, per Videocall oder persönlich.</p>
+      </div>
+
+      <button class="accordion-button">Hair für dein Event <span class="arrow">&#9656;</span></button>
+      <div class="accordion-content">
+        <p>Hair für dein Event ab 120€.</p>
+      </div>
+
+      <button class="accordion-button">Make-up & Hair für dein Event <span class="arrow">&#9656;</span></button>
+      <div class="accordion-content">
+        <p>Make-up und Hair für dein Event ab 150€.</p>
+      </div>
+    </div>
+  </section>
+
   <section class="gallery">
     <h3>Galerie Event Stylings</h3>
     <div class="images">
       <img src="images/event1.jpg" alt="Event Styling Beispiel 1">
       <img src="events2.jpg" alt="Event Styling Beispiel 2">
-      <img src="images/event3.jpg" alt="Event Styling Beispiel 2">
+      <img src="images/event3.jpg" alt="Event Styling Beispiel 3">
     </div>
   </section>
 
@@ -398,6 +452,25 @@ slider.addEventListener('touchend', e => {
     currentSlide = (currentSlide - 1 + slides.length) % slides.length;
     showSlide(currentSlide);
   }
+});
+
+// Accordion Logic
+const accordionButtons = document.querySelectorAll('.accordion-button');
+accordionButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    const content = button.nextElementSibling;
+    const isActive = button.classList.contains('active');
+    
+    // Alle schließen
+    document.querySelectorAll('.accordion-content').forEach(c => c.style.maxHeight = null);
+    document.querySelectorAll('.accordion-button').forEach(b => b.classList.remove('active'));
+    
+    // Nur öffnen, wenn vorher nicht aktiv
+    if (!isActive) {
+      content.style.maxHeight = content.scrollHeight + "px";
+      button.classList.add('active');
+    }
+  });
 });
 </script>
 
