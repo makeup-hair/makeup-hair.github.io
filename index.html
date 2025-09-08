@@ -28,7 +28,7 @@ body {
 .site-header {
   position: relative;
   width: 100%;
-  height: 140px; /* schlanker Banner auf Desktop */
+  height: 200px; /* Banner auf Desktop */
   overflow: hidden;
   text-align: center;
 }
@@ -43,12 +43,12 @@ body {
 }
 .logo-heading {
   position: absolute;
-  top: 60%;
-  left: 50%;
+  top: 50%; /* vertikal zentriert */
+  left: 50%; /* horizontal zentriert */
   transform: translate(-50%, -50%);
   font-family: 'Italianno', cursive;
-  font-size: 52px;     /* kleiner als vorher */
-  font-weight: 100;    /* sehr dünn, minimalistisch */
+  font-size: 56px;     
+  font-weight: 100;    
   color: #000;
   z-index: 10;
   text-align: center;
@@ -212,8 +212,32 @@ body {
 .review-slider .arrow:hover { background: #ffd6dc; }
 
 /* Kontakt */
-.contact { margin-top: 16px; padding: 16px; text-align: center; }
-.contact h3 { font-weight: normal; text-align: center; }
+.contact {
+  margin-top: 40px;
+  padding: 32px 16px;
+  text-align: center;
+  background: #fdfdfd;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+.contact h3 {
+  font-weight: 300;
+  font-size: 24px;
+  margin-bottom: 16px;
+}
+.contact-info p {
+  margin: 8px 0;
+  font-weight: 400;
+  font-size: 16px;
+}
+.contact-info a {
+  color: #000;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.contact-info a:hover {
+  color: #555;
+}
 
 /* Footer */
 .site-footer { margin-top: 36px; padding: 18px 0; text-align: center; color: #666; font-size: 14px; }
@@ -236,8 +260,8 @@ body {
   .service-items { flex-direction: column; gap: 12px; }
   .hero h2 { font-size: 18px; }
   .gallery img:hover { transform: scale(1.4); }
-  .site-header { height: 100px; }     /* noch schmaler auf Handy */
-  .logo-heading { font-size: 38px; } /* kleine Schrift auf Handy */
+  .site-header { height: 100px; }     
+  .logo-heading { font-size: 38px; } 
 }
 @media (max-width:480px){
   .bottom-bar { flex-direction: row; gap: 6px; padding: 8px 0; }
@@ -267,7 +291,7 @@ body {
 
   <section class="hero">
     <h2>Dein Look — perfekt in Szene gesetzt!</h2>
-    <a class="cta" href="mailto:info@szstylings.de">Jetzt Termin sichern</a>
+    <a class="cta" href="mailto:info@sz-stylings.de">Jetzt Termin sichern</a>
   </section>
 
   <section class="gallery">
@@ -330,8 +354,11 @@ body {
 
   <section class="contact">
     <h3>Kontakt</h3>
-    <p>Schreib mir unter: <a href="mailto:info@szstylings.de">info@szstylings.de</a></p>
-    <p>Oder direkt per WhatsApp: <a href="https://wa.me/DEINE_NUMMER">Hier klicken</a></p>
+    <div class="contact-info">
+      <p><strong>Email:</strong> <a href="mailto:info@sz-stylings.de">info@sz-stylings.de</a></p>
+      <p><strong>Instagram:</strong> <a href="https://www.instagram.com/szstylings" target="_blank">@szstylings</a></p>
+      <p>Deutschlandweit mobil unterwegs</p>
+    </div>
   </section>
 
 </main>
@@ -342,7 +369,7 @@ body {
 </footer>
 
 <div class="bottom-bar">
-  <a href="mailto:info@szstylings.de" class="bottom-btn">Email</a>
+  <a href="mailto:info@sz-stylings.de" class="bottom-btn">Email</a>
   <a href="https://www.instagram.com/deinprofil" target="_blank" class="bottom-btn">Instagram</a>
 </div>
 
@@ -363,7 +390,6 @@ function nextSlide() {
   showSlide(currentSlide);
 }
 
-// Klick auf Punkte
 dots.forEach((dot,index)=>{
   dot.addEventListener('click',()=>{
     currentSlide = index;
@@ -371,10 +397,8 @@ dots.forEach((dot,index)=>{
   });
 });
 
-// Automatischer Slider
 setInterval(nextSlide,5000);
 
-// Pfeile
 const leftArrow = document.querySelector('.review-slider .arrow.left');
 const rightArrow = document.querySelector('.review-slider .arrow.right');
 
@@ -386,7 +410,6 @@ rightArrow.addEventListener('click', () => {
   nextSlide();
 });
 
-// Swipe für Mobile
 let startX = 0;
 let endX = 0;
 const slider = document.querySelector('.review-slider');
@@ -400,7 +423,6 @@ slider.addEventListener('touchend', e => {
   }
 });
 
-// Galerie-Bilder Klick: nur ein Bild vergrößert, zweiter Klick setzt zurück
 const galleryImages = document.querySelectorAll('.gallery img');
 galleryImages.forEach(img => {
   img.addEventListener('click', () => {
