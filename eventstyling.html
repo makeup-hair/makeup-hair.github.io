@@ -43,7 +43,7 @@ body {
 }
 .logo-heading {
   position: absolute;
-  top: 50%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-family: 'Italianno', cursive;
@@ -55,7 +55,7 @@ body {
 }
 .tagline {
   position: absolute;
-  top: 70%;
+  top: 60%;
   left: 50%;
   transform: translateX(-50%);
   font-size: 18px;
@@ -140,6 +140,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-family: "Quicksand", sans-serif;
 }
 .accordion-button:hover { background: #ffd6dc; }
 .accordion-button.active { background: #ffd6dc; }
@@ -151,6 +152,7 @@ body {
   background: #fdfdfd;
   border-radius: 0 0 8px 8px;
   margin-bottom: 10px;
+  font-family: "Quicksand", sans-serif;
 }
 .arrow { transition: transform 0.3s ease; }
 .accordion-button.active .arrow { transform: rotate(90deg); }
@@ -227,9 +229,29 @@ body {
   user-select: none;
   z-index: 10;
 }
-.review-slider .arrow.left { left: -50px; }
-.review-slider .arrow.right { right: -50px; }
+.review-slider .arrow.left { left: 10px; }
+.review-slider .arrow.right { right: 10px; }
 .review-slider .arrow:hover { background: #ffd6dc; }
+
+/* Review Verifiziert + Sterne */
+.review-meta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+}
+.review-meta .verified {
+  background: #4caf50;
+  color: #fff;
+  font-size: 12px;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+.review-meta .stars {
+  color: gold;
+  font-size: 14px;
+}
 
 /* Kontakt */
 .contact {
@@ -337,7 +359,6 @@ body {
     </ul>
   </section>
 
-  <!-- Neuer Abschnitt: Angebot & Preise -->
   <section class="pricing">
     <h3>Angebot & Preise</h3>
 
@@ -376,9 +397,17 @@ body {
 
       <div class="slide active">
         <blockquote>"Mein Styling war perfekt für meinen Abiball – ich habe mich wie eine Prinzessin gefühlt!" – Julia K.</blockquote>
+        <div class="review-meta">
+          <span class="verified">Verifiziert</span>
+          <span class="stars">★★★★★</span>
+        </div>
       </div>
       <div class="slide">
         <blockquote>"Sehr professionell, pünktlich und wunderschöne Ergebnisse für unsere Firmenfeier." – Lena R.</blockquote>
+        <div class="review-meta">
+          <span class="verified">Verifiziert</span>
+          <span class="stars">★★★★★</span>
+        </div>
       </div>
     </div>
     <div class="slider-dots">
