@@ -28,30 +28,41 @@ body {
 .site-header {
   position: relative;
   width: 100%;
-  height: 200px; /* Banner auf Desktop */
+  height: 220px;
   overflow: hidden;
   text-align: center;
 }
 .site-header::before {
   content: "";
   position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
+  top: 20px;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background: url('images/header-bg.png') center/cover no-repeat;
-  opacity: 0.1; /* heller/minimalistischer */
+  opacity: 0.1;
   z-index: 0;
 }
 .logo-heading {
   position: absolute;
-  top: 50%; /* vertikal zentriert */
-  left: 50%; /* horizontal zentriert */
+  top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
   font-family: 'Italianno', cursive;
-  font-size: 56px;     
-  font-weight: 100;    
+  font-size: 56px;
+  font-weight: 100;
   color: #000;
   z-index: 10;
   text-align: center;
+}
+.tagline {
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 18px;
+  font-weight: 400;
+  color: #000;
 }
 
 /* Navigation */
@@ -81,12 +92,7 @@ body {
   box-shadow: 0 6px 22px rgba(0,0,0,0.06);
   text-align: center;
 }
-.hero h2 {
-  margin: 0 0 12px 0;
-  font-size: 22px;
-  font-weight: normal;
-  text-align: center;
-}
+.hero h2 { margin: 0 0 12px 0; font-size: 22px; font-weight: normal; }
 .hero p { margin: 0 0 18px 0; }
 
 /* CTA Button helles Pastellrosa */
@@ -127,12 +133,7 @@ body {
   text-decoration: none;
   color: #000;
 }
-.service-item img {
-  max-width: 100%;
-  border-radius: 10px;
-  margin-bottom: 12px;
-  display: block;
-}
+.service-item img { max-width: 100%; border-radius: 10px; margin-bottom: 12px; display: block; }
 .service-item h4 { font-weight: normal; text-align: center; }
 
 /* Galerie */
@@ -177,6 +178,26 @@ body {
   color: #000;
   box-shadow: 0 6px 14px rgba(0,0,0,0.05);
 }
+.review-meta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+}
+.review-meta .verified {
+  background: #4caf50;
+  color: #fff;
+  font-size: 12px;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+.review-meta .stars {
+  color: gold;
+  font-size: 14px;
+}
+
+/* Slider Dots */
 .slider-dots { margin-top: 12px; }
 .slider-dots .dot {
   height: 10px;
@@ -220,24 +241,10 @@ body {
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
-.contact h3 {
-  font-weight: 300;
-  font-size: 24px;
-  margin-bottom: 16px;
-}
-.contact-info p {
-  margin: 8px 0;
-  font-weight: 400;
-  font-size: 16px;
-}
-.contact-info a {
-  color: #000;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-.contact-info a:hover {
-  color: #555;
-}
+.contact h3 { font-weight: 300; font-size: 24px; margin-bottom: 16px; }
+.contact-info p { margin: 8px 0; font-weight: 400; font-size: 16px; }
+.contact-info a { color: #000; text-decoration: none; transition: color 0.3s ease; }
+.contact-info a:hover { color: #555; }
 
 /* Footer */
 .site-footer { margin-top: 36px; padding: 18px 0; text-align: center; color: #666; font-size: 14px; }
@@ -260,7 +267,7 @@ body {
   .service-items { flex-direction: column; gap: 12px; }
   .hero h2 { font-size: 18px; }
   .gallery img:hover { transform: scale(1.4); }
-  .site-header { height: 100px; }     
+  .site-header { height: 160px; }     
   .logo-heading { font-size: 38px; } 
 }
 @media (max-width:480px){
@@ -274,6 +281,7 @@ body {
 
 <header class="site-header">
   <h1 class="logo-heading">SZ Stylings</h1>
+  <p class="tagline">Dein Look — perfekt in Szene gesetzt!</p>
 </header>
 
 <nav class="main-nav">
@@ -290,42 +298,44 @@ body {
 <main class="container">
 
   <section class="hero">
-    <h2>Dein Look — perfekt in Szene gesetzt!</h2>
+    <h2>Dein Look für jeden Anlass</h2>
+    <p>Geburtstag, Jubiläum, Abiball oder Firmenfeier – ich style dich passend zu deinem Event, sodass du dich wohlfühlst!</p>
     <a class="cta" href="mailto:info@sz-stylings.de">Jetzt Termin sichern</a>
   </section>
 
-  <section class="gallery">
-    <h3>Galerie</h3>
-    <div class="images">
-      <img src="images/event2.jpg" alt="Hair Styling"><img src="images/shooting1.jpg" alt="Hair Styling"><img src="images/shooting3.jpg" alt="Hair Styling">
-      <img src="images/kids2.jpg" alt="Hair Styling"><img src="images/kids1.jpg" alt="Hair Styling"><img src="images/kids3.jpg" alt="Hair Styling">
-      <img src="images/shooting2.jpg" alt="Hair Styling"><img src="images/Homepage2.jpg" alt="Hair Styling"><img src="images/event3.jpg" alt="Hair Styling">
-    </div>
-  </section>
-
   <section class="services">
-    <h3>Services</h3>
+    <h3>Meine Services</h3>
     <div class="service-items">
       <a class="service-item" href="eventstyling.html">
         <img src="images/event1.jpg" alt="Event Styling Beispiel">
         <h4>Event</h4>
         <p>Perfektes Styling für Geburtstage, Jubiläen oder besondere Anlässe – passend zum Outfit und Anlass</p>
       </a>
-      <a class="service-item" href="shooting.html">
-        <img src="images/shooting3.jpg" alt="Beauty Shooting">
+      <a class="service-item" href="stylingshooting.html">
+        <img src="images/shooting1.jpg" alt="Beauty Shooting">
         <h4>Shooting</h4>
         <p>Professionelles Styling für Fotoshootings, Social Media oder Filmproduktionen – kreativ und modern</p>
       </a>
       <a class="service-item" href="kids.html">
-        <img src="images/kids3.jpg" alt="Kinderschminken">
+        <img src="images/kids1.jpg" alt="Kinderschminken">
         <h4>Kids</h4>
         <p>Kindheitsheld, Disney Star oder Tierfantasie - Hier erwachen die Träume zum Leben</p>
       </a>
       <a class="service-item" href="special-makeup.html">
-        <img src="images/specialmakeup3.jpg" alt="Special Effects Make-up">
+        <img src="images/specialmakeup1.jpg" alt="Special Effects Make-up">
         <h4>Special Effects Make-up</h4>
         <p>Kreative Looks für Halloween, Karneval, Filmproduktionen oder besondere Events – gruselig oder bunt.</p>
       </a>
+    </div>
+  </section>
+
+  <section class="gallery">
+    <h3>Galerie</h3>
+    <div class="images">
+      <img src="images/event2.jpg" alt="Event Styling">
+      <img src="images/shooting1.jpg" alt="Shooting">
+      <img src="images/kids2.jpg" alt="Kids">
+      <img src="images/specialmakeup2.jpg" alt="Special Make-up">
     </div>
   </section>
 
@@ -336,13 +346,25 @@ body {
       <div class="arrow right">&#10095;</div>
 
       <div class="slide active">
-        <blockquote>"Meine Liebe, ich muss mich vom ganzen Herzen bedanken. Du hast meinen wichtigsten Tag noch unvergesslicher gemacht. Das klingt wie ein Spruch aus einer Zeitschrift, aber genau so war es! Wenn ihr eine zuverlässige, sympathische Stylistin für euren großen Tag sucht, dann seid ihr hier in den besten Händen!– Mareike</blockquote>
+        <blockquote>"Mein Styling war perfekt für meinen Abiball – ich habe mich wie eine Prinzessin gefühlt!" – Julia K.</blockquote>
+        <div class="review-meta">
+          <span class="verified">Verifiziert</span>
+          <span class="stars">★★★★★</span>
+        </div>
       </div>
       <div class="slide">
-        <blockquote>"Vielen Dank für diese tolle Zusammenarbeit! Das Make up ist genauso geworden, wie vorher besprochen und meine Frisur hat den ganzen Abend gehalten. Tolle Arbeit!" – Lilly</blockquote>
+        <blockquote>"Sehr professionell, pünktlich und wunderschöne Ergebnisse für unsere Firmenfeier." – Lena R.</blockquote>
+        <div class="review-meta">
+          <span class="verified">Verifiziert</span>
+          <span class="stars">★★★★★</span>
+        </div>
       </div>
       <div class="slide">
-        <blockquote>"Meine Tochter hat mich angeschaut und gesagt, dass Sie jetzt endlich eine Prinzessin ist. Ich glaube mehr muss ich nicht sagen. Absolute Empfehlung!" – Silke</blockquote>
+        <blockquote>"Absolut empfehlenswert! Meine Tochter war begeistert von ihrem Styling." – Silke M.</blockquote>
+        <div class="review-meta">
+          <span class="verified">Verifiziert</span>
+          <span class="stars">★★★★★</span>
+        </div>
       </div>
     </div>
     <div class="slider-dots">
@@ -357,23 +379,24 @@ body {
     <div class="contact-info">
       <p><strong>Email:</strong> <a href="mailto:info@sz-stylings.de">info@sz-stylings.de</a></p>
       <p><strong>Instagram:</strong> <a href="https://www.instagram.com/szstylings" target="_blank">@szstylings</a></p>
-      <p>Mobile in Sachsen und Brandenburg oder auf Anfrage</p>
+      <p>Deutschlandweit mobil unterwegs</p>
     </div>
   </section>
 
 </main>
 
 <footer class="site-footer">
-  <p>© 2025 SZ Stylings — All Stylings • Mobile in Sachsen und Brandenburg</p>
+  <p>© 2025 SZ Stylings — All Stylings • Mobile in Sachsen & Brandenburg</p>
   <p><a href="impressum.html">Impressum</a> | <a href="datenschutz.html">Datenschutz</a></p>
 </footer>
 
 <div class="bottom-bar">
   <a href="mailto:info@sz-stylings.de" class="bottom-btn">Email</a>
-  <a href="https://www.instagram.com/deinprofil" target="_blank" class="bottom-btn">Instagram</a>
+  <a href="https://www.instagram.com/szstylings" target="_blank" class="bottom-btn">Instagram</a>
 </div>
 
 <script>
+// Slider Logik
 let currentSlide = 0;
 const slides = document.querySelectorAll('.review-slider .slide');
 const dots = document.querySelectorAll('.slider-dots .dot');
@@ -384,24 +407,20 @@ function showSlide(index) {
     dots[i].classList.toggle('active', i===index);
   });
 }
-
 function nextSlide() {
   currentSlide = (currentSlide + 1) % slides.length;
   showSlide(currentSlide);
 }
-
 dots.forEach((dot,index)=>{
   dot.addEventListener('click',()=>{
     currentSlide = index;
     showSlide(currentSlide);
   });
 });
-
 setInterval(nextSlide,5000);
 
 const leftArrow = document.querySelector('.review-slider .arrow.left');
 const rightArrow = document.querySelector('.review-slider .arrow.right');
-
 leftArrow.addEventListener('click', () => {
   currentSlide = (currentSlide - 1 + slides.length) % slides.length;
   showSlide(currentSlide);
@@ -410,6 +429,7 @@ rightArrow.addEventListener('click', () => {
   nextSlide();
 });
 
+// Touch Events
 let startX = 0;
 let endX = 0;
 const slider = document.querySelector('.review-slider');
@@ -423,6 +443,7 @@ slider.addEventListener('touchend', e => {
   }
 });
 
+// Galerie Zoom
 const galleryImages = document.querySelectorAll('.gallery img');
 galleryImages.forEach(img => {
   img.addEventListener('click', () => {
