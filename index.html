@@ -269,30 +269,19 @@ body {
 .site-footer { margin-top: 36px; padding: 18px 0; text-align: center; color: #666; font-size: 14px; }
 
 }
-/* Bottom-Bar fixiert und mittig */
+/* Bottom-Bar mitscrollend und mittig */
 .bottom-bar {
-  position: fixed;
-  bottom: 0;
-  left: 50%;              /* mittig */
-  transform: translateX(-50%);
+  position: relative;         /* scrollt mit dem Inhalt */
   display: flex;
-  justify-content: center;
-  gap: 10px;
-  padding: 10px 0;
-  z-index: 999;
-  background: #fff;        /* sichtbar, über Content */
-  box-shadow: 0 -2px 6px rgba(0,0,0,0.1);
+  justify-content: center;    /* Buttons mittig */
+  gap: 12px;
+  margin: 40px auto;          /* Abstand oben/unten und zentriert */
 }
 
-/* Footer Abstand schaffen, damit Bottom-Bar Links nicht verdeckt */
+/* Footer etwas Abstand nach oben */
 .site-footer {
-  margin-bottom: 70px;     /* genug Platz für die fixierte Bottom-Bar */
+  margin-top: 60px;           /* Platz, damit die Buttons den Footer nicht überdecken */
 
-}
-
-/* Footer Abstand schaffen */
-.site-footer {
-  margin-bottom: 60px; /* Platz für die Bottom-Bar */
 }
 
 /* Cookie Banner */
