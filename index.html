@@ -268,6 +268,7 @@ body {
 /* Footer */
 .site-footer { margin-top: 36px; padding: 18px 0; text-align: center; color: #666; font-size: 14px; }
 
+}
 /* Bottom-Bar */
 .bottom-bar {
   position: fixed;
@@ -279,6 +280,13 @@ body {
   gap: 10px;
   padding: 10px 0;
   z-index: 999;
+  background: #fff; /* sorgt dafür, dass es sich klar vom Footer abhebt */
+  box-shadow: 0 -2px 6px rgba(0,0,0,0.1);
+}
+
+/* Footer Abstand schaffen */
+.site-footer {
+  margin-bottom: 60px; /* Platz für die Bottom-Bar */
 }
 
 /* Cookie Banner */
@@ -332,6 +340,7 @@ body {
   .bottom-bar .bottom-btn { padding: 6px 10px; font-size: 14px; }
   .gallery img { width: 80px; height: 80px; }
 }
+
 </style>
 </head>
 <body>
