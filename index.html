@@ -265,23 +265,40 @@ body {
   color: #555;
 }
 
-/* Footer */
-.site-footer { margin-top: 36px; padding: 18px 0; text-align: center; color: #666; font-size: 14px; }
-
-}
 /* Bottom-Bar mitscrollend und mittig */
 .bottom-bar {
-  position: relative;         /* scrollt mit dem Inhalt */
+  position: relative;          /* scrollt mit dem Inhalt */
   display: flex;
-  justify-content: center;    /* Buttons mittig */
+  justify-content: center;     /* Buttons mittig */
   gap: 12px;
-  margin: 40px auto;          /* Abstand oben/unten und zentriert */
+  margin: 40px auto 0 auto;   /* Abstand oben */
+  z-index: 5;
 }
 
-/* Footer etwas Abstand nach oben */
-.site-footer {
-  margin-top: 60px;           /* Platz, damit die Buttons den Footer nicht überdecken */
+/* Bottom-Bar Buttons */
+.bottom-bar .bottom-btn {
+  padding: 12px 24px;
+  border-radius: 10px;
+  background: #ffe4e6;
+  color: #000;
+  text-decoration: none;
+  border: 1px solid #f5c0cb;
+  transition: all 0.3s ease;
+  font-size: 16px;
+}
+.bottom-bar .bottom-btn:hover {
+  transform: translateY(-2px);
+  background: #ffd6dc;
+}
 
+/* Footer */
+.site-footer {
+  margin-top: 20px;            /* Abstand zum Footer */
+  padding-top: 18px;
+  padding-bottom: 18px;
+  text-align: center;
+  color: #666;
+  font-size: 14px;
 }
 
 /* Cookie Banner */
@@ -331,11 +348,17 @@ body {
   .logo-heading { font-size: 38px; top: 30%; transform: translate(-50%, -30%); } 
 }
 @media (max-width:480px){
-  .bottom-bar { flex-direction: row; gap: 6px; padding: 8px 0; }
-  .bottom-bar .bottom-btn { padding: 6px 10px; font-size: 14px; }
+  .bottom-bar {
+    flex-direction: row;        /* nebeneinander */
+    gap: 8px;                   /* weniger Abstand */
+    padding: 8px 0;
+  }
+  .bottom-bar .bottom-btn {
+    padding: 8px 12px;          /* kleinere Buttons */
+    font-size: 14px;
+  }
   .gallery img { width: 80px; height: 80px; }
 }
-
 </style>
 </head>
 <body>
@@ -456,7 +479,7 @@ body {
   <a href="https://www.instagram.com/deinprofil" target="_blank" class="bottom-btn">Instagram</a>
 </div>
   
-  <footer class="site-footer">
+<footer class="site-footer">
   <p>© 2025 SZ Stylings</p>
   <p><a href="impressum.html">Impressum</a> | <a href="datenschutz.html">Datenschutz</a> | 
      <a href="#" id="open-cookie-settings">Cookie-Einstellungen</a></p>
