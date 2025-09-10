@@ -269,19 +269,25 @@ body {
 .site-footer { margin-top: 36px; padding: 18px 0; text-align: center; color: #666; font-size: 14px; }
 
 }
-/* Bottom-Bar */
+/* Bottom-Bar fixiert und mittig */
 .bottom-bar {
   position: fixed;
   bottom: 0;
-  left: 0;
-  width: 100%;
+  left: 50%;              /* mittig */
+  transform: translateX(-50%);
   display: flex;
   justify-content: center;
   gap: 10px;
   padding: 10px 0;
   z-index: 999;
-  background: #fff; /* sorgt dafür, dass es sich klar vom Footer abhebt */
+  background: #fff;        /* sichtbar, über Content */
   box-shadow: 0 -2px 6px rgba(0,0,0,0.1);
+}
+
+/* Footer Abstand schaffen, damit Bottom-Bar Links nicht verdeckt */
+.site-footer {
+  margin-bottom: 70px;     /* genug Platz für die fixierte Bottom-Bar */
+
 }
 
 /* Footer Abstand schaffen */
