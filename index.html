@@ -28,7 +28,7 @@ body {
 .site-header {
   position: relative;
   width: 100%;
-  height: 200px; /* Banner auf Desktop */
+  height: 200px;
   overflow: hidden;
   text-align: center;
 }
@@ -43,7 +43,7 @@ body {
 }
 .logo-heading {
   position: absolute;
-  top: 35%; /* weiter oben */
+  top: 35%;
   left: 50%;
   transform: translate(-50%, -35%);
   font-family: 'Italianno', cursive;
@@ -89,7 +89,7 @@ body {
 }
 .hero p { margin: 0 0 18px 0; }
 
-/* CTA Button helles Pastellrosa */
+/* CTA Button */
 .cta, .bottom-bar .bottom-btn {
   display: inline-block;
   padding: 12px 24px;
@@ -186,21 +186,21 @@ body {
   justify-content: center;
   gap: 12px;
 }
-.review-meta .stars {
-  color: #FFD700;
-  font-size: 18px;
-}
 .review-meta .verified {
-  background: #ffe4e6;
+  background: #d4f8d4;
   color: #000;
-  border: 1px solid #f5c0cb;
+  border: 1px solid #8fce8f;
   border-radius: 8px;
   padding: 4px 10px;
   font-size: 14px;
   cursor: default;
 }
 .review-meta .verified:hover {
-  background: #ffd6dc;
+  background: #baf0ba;
+}
+.review-meta .stars {
+  color: #FFD700;
+  font-size: 18px;
 }
 
 .slider-dots { margin-top: 12px; }
@@ -280,6 +280,44 @@ body {
   padding: 10px 0;
   z-index: 999;
 }
+
+/* Cookie Banner */
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  border-top: 2px solid #ccc;
+  box-shadow: 0 -2px 6px rgba(0,0,0,0.1);
+  padding: 16px;
+  text-align: center;
+  z-index: 1000;
+  display: none;
+}
+.cookie-banner p {
+  margin: 0 0 12px;
+}
+.cookie-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+.cookie-buttons button {
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background: #f0f0f0;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.cookie-buttons button:hover {
+  background: #e0e0e0;
+}
+.cookie-buttons .accept { background: #d4f8d4; border-color: #8fce8f; }
+.cookie-buttons .accept:hover { background: #baf0ba; }
+.cookie-buttons .decline { background: #ffe4e6; border-color: #f5c0cb; }
+.cookie-buttons .decline:hover { background: #ffd6dc; }
 
 /* Responsive */
 @media (max-width:600px){
@@ -366,8 +404,8 @@ body {
           "Meine Liebe, ich muss mich vom ganzen Herzen bedanken. Du hast meinen wichtigsten Tag noch unvergesslicher gemacht. Das klingt wie ein Spruch aus einer Zeitschrift, aber genau so war es! Wenn ihr eine zuverlässige, sympathische Stylistin für euren großen Tag sucht, dann seid ihr hier in den besten Händen!– Mareike"
         </blockquote>
         <div class="review-meta">
-          <div class="stars">★★★★★</div>
           <button class="verified">Verifiziert</button>
+          <div class="stars">★★★★★</div>
         </div>
       </div>
 
@@ -376,8 +414,8 @@ body {
           "Vielen Dank für diese tolle Zusammenarbeit! Das Make up ist genauso geworden, wie vorher besprochen und meine Frisur hat den ganzen Abend gehalten. Tolle Arbeit!" – Lilly
         </blockquote>
         <div class="review-meta">
-          <div class="stars">★★★★★</div>
           <button class="verified">Verifiziert</button>
+          <div class="stars">★★★★★</div>
         </div>
       </div>
 
@@ -386,8 +424,8 @@ body {
           "Meine Tochter hat mich angeschaut und gesagt, dass Sie jetzt endlich eine Prinzessin ist. Ich glaube mehr muss ich nicht sagen. Absolute Empfehlung!" – Silke
         </blockquote>
         <div class="review-meta">
-          <div class="stars">★★★★★</div>
           <button class="verified">Verifiziert</button>
+          <div class="stars">★★★★★</div>
         </div>
       </div>
     </div>
@@ -411,12 +449,23 @@ body {
 
 <footer class="site-footer">
   <p>© 2025 SZ Stylings</p>
-  <p><a href="impressum.html">Impressum</a> | <a href="datenschutz.html">Datenschutz</a></p>
+  <p><a href="impressum.html">Impressum</a> | <a href="datenschutz.html">Datenschutz</a> | 
+     <a href="#" id="open-cookie-settings">Cookie-Einstellungen</a></p>
 </footer>
 
 <div class="bottom-bar">
   <a href="mailto:info@sz-stylings.de" class="bottom-btn">Email</a>
   <a href="https://www.instagram.com/deinprofil" target="_blank" class="bottom-btn">Instagram</a>
+</div>
+
+<!-- Cookie Banner -->
+<div class="cookie-banner" id="cookie-banner">
+  <p>Wir verwenden Cookies, um unsere Website zu optimieren und Ihnen den bestmöglichen Service zu bieten.</p>
+  <div class="cookie-buttons">
+    <button class="accept">Akzeptieren</button>
+    <button class="decline">Ablehnen</button>
+    <button class="settings">Einstellungen</button>
+  </div>
 </div>
 
 <script>
@@ -479,6 +528,42 @@ galleryImages.forEach(img => {
       img.classList.add('active');
     }
   });
+});
+
+/* Cookie Banner */
+const cookieBanner = document.getElementById('cookie-banner');
+const openCookieSettings = document.getElementById('open-cookie-settings');
+const acceptBtn = cookieBanner.querySelector('.accept');
+const declineBtn = cookieBanner.querySelector('.decline');
+const settingsBtn = cookieBanner.querySelector('.settings');
+
+function showCookieBanner() {
+  cookieBanner.style.display = 'block';
+}
+function hideCookieBanner() {
+  cookieBanner.style.display = 'none';
+}
+
+// Banner beim ersten Laden anzeigen
+if (!localStorage.getItem('cookieChoice')) {
+  showCookieBanner();
+}
+
+acceptBtn.addEventListener('click', () => {
+  localStorage.setItem('cookieChoice', 'accepted');
+  hideCookieBanner();
+});
+declineBtn.addEventListener('click', () => {
+  localStorage.setItem('cookieChoice', 'declined');
+  hideCookieBanner();
+});
+settingsBtn.addEventListener('click', () => {
+  alert("Hier könnten detaillierte Cookie-Einstellungen erscheinen.");
+});
+
+openCookieSettings.addEventListener('click', (e) => {
+  e.preventDefault();
+  showCookieBanner();
 });
 </script>
 
