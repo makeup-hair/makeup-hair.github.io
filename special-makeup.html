@@ -13,6 +13,7 @@
   --accent: #f5e6d3;
 }
 
+/* Grundstruktur */
 * { box-sizing: border-box; }
 body {
   margin: 0;
@@ -23,6 +24,7 @@ body {
 }
 .container { max-width: 920px; margin: 0 auto; padding: 24px; }
 
+/* Header */
 .site-header {
   position: relative;
   width: 100%;
@@ -51,16 +53,8 @@ body {
   z-index: 10;
   text-align: center;
 }
-.tagline {
-  position: absolute;
-  top: 60%;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 18px;
-  font-weight: 400;
-  color: #000;
-}
 
+/* Navigation */
 .main-nav {
   text-align: center;
   background: #fff;
@@ -78,6 +72,7 @@ body {
 .main-nav a:hover { color: #555; }
 .main-nav a.active { border-bottom: 1px solid #000; }
 
+/* Hero */
 .hero {
   background: #fff;
   border-radius: 12px;
@@ -93,30 +88,21 @@ body {
   text-align: center;
 }
 .hero p { margin: 0 0 18px 0; }
-
 .cta {
   display: inline-block;
   padding: 12px 24px;
   border-radius: 10px;
   background: #ffe4e6;
   color: #000;
-  font-weight: normal;
   text-decoration: none;
   border: 1px solid #f5c0cb;
   transition: all 0.3s ease;
 }
-.cta:hover { 
-  transform: translateY(-2px); 
-  background: #ffd6dc;
-}
+.cta:hover { transform: translateY(-2px); background: #ffd6dc; }
 
-.services { margin-top: 20px; }
-.services h3 { margin-top:0; font-size: 24px; font-weight: normal; text-align: center; }
-.services ul { padding-left: 20px; }
-.services li { margin: 8px 0; }
-
+/* Galerie */
 .gallery { margin-top: 32px; text-align: center; }
-.gallery h3 { text-align: center; font-weight: normal; }
+.gallery h3 { font-weight: normal; }
 .gallery .images {
   display: flex;
   flex-wrap: wrap;
@@ -131,82 +117,68 @@ body {
   transition: transform 0.3s ease;
   cursor: pointer;
 }
-.gallery img:hover {
-  transform: scale(1.8);
-  z-index: 10;
-  position: relative;
-}
-.gallery img.active {
-  transform: none !important;
-  z-index: 1;
-  position: static;
-}
+.gallery img:hover { transform: scale(1.8); z-index: 10; position: relative; }
 
+/* Services */
+.services { margin-top: 20px; }
+.services h3 { text-align: center; font-weight: normal; }
+.services ul { padding-left: 20px; }
+.services li { margin: 8px 0; }
+
+/* Accordion Preise */
+.pricing { margin-top: 20px; }
+.pricing h3 { text-align: center; font-weight: normal; margin-bottom: 12px; }
+.accordion-button {
+  background: #ffe4e6;
+  color: #000;
+  cursor: pointer;
+  padding: 14px 20px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  border-radius: 8px;
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.accordion-button:hover { background: #ffd6dc; }
+.accordion-button.active { background: #ffd6dc; }
+.accordion-content {
+  padding: 0 20px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  background: #fdfdfd;
+  border-radius: 0 0 8px 8px;
+  margin-bottom: 10px;
+}
+.arrow { transition: transform 0.3s ease; }
+.accordion-button.active .arrow { transform: rotate(90deg); }
+
+/* Bewertungen Slider */
 .reviews { margin-top: 40px; text-align: center; }
-.review-slider { max-width: 600px; margin: 0 auto; overflow: hidden; position: relative; }
-.review-slider .slide { display: none; opacity: 0; transition: opacity 0.5s ease; }
+.review-slider { max-width: 600px; margin: 0 auto; position: relative; }
+.review-slider .slide { display: none; opacity: 0; transition: opacity 0.5s; }
 .review-slider .slide.active { display: block; opacity: 1; }
 .reviews blockquote {
   background: #f0f0f0;
   padding: 20px;
   border-radius: 12px;
-  margin: 16px 0;
   font-style: italic;
   color: #000;
   box-shadow: 0 6px 14px rgba(0,0,0,0.05);
 }
 .slider-dots { margin-top: 12px; }
 .slider-dots .dot {
-  height: 10px;
-  width: 10px;
-  margin: 0 5px;
-  background: #ccc;
-  border-radius: 50%;
-  display: inline-block;
+  height: 10px; width: 10px;
+  margin: 0 5px; background: #ccc;
+  border-radius: 50%; display: inline-block;
   cursor: pointer;
-  transition: background 0.3s ease;
 }
 .slider-dots .dot.active { background: #000; }
 
-.review-slider .arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 24px;
-  color: #000;
-  background: #ffe4e6;
-  border-radius: 50%;
-  width: 36px;
-  height: 36px;
-  line-height: 36px;
-  text-align: center;
-  cursor: pointer;
-  user-select: none;
-  z-index: 10;
-}
-.review-slider .arrow.left { left: 10px; }
-.review-slider .arrow.right { right: 10px; }
-.review-slider .arrow:hover { background: #ffd6dc; }
-
-.review-meta {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-  margin-top: 8px;
-}
-.review-meta .verified {
-  background: #4caf50;
-  color: #fff;
-  font-size: 12px;
-  padding: 2px 6px;
-  border-radius: 4px;
-}
-.review-meta .stars {
-  color: gold;
-  font-size: 14px;
-}
-
+/* Kontakt */
 .contact {
   margin-top: 40px;
   padding: 32px 16px;
@@ -215,62 +187,21 @@ body {
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
-.contact h3 {
-  font-weight: 300;
-  font-size: 24px;
-  margin-bottom: 16px;
-}
-.contact-info p {
-  margin: 8px 0;
-  font-weight: 400;
-  font-size: 16px;
-}
-.contact-info a {
-  color: #000;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-.contact-info a:hover { color: #555; }
+.contact h3 { font-weight: 300; font-size: 24px; margin-bottom: 16px; }
+.contact-info p { margin: 8px 0; font-size: 16px; }
+.contact-info a { color: #000; text-decoration: none; }
 
-.site-footer { margin-top: 36px; padding: 18px 0; text-align: center; color: #666; font-size: 14px; }
-
+/* Footer & Bottom-Bar gleich wie Event */
+.site-footer { margin-top: 36px; text-align: center; color: #666; font-size: 14px; }
 .bottom-bar {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  padding: 10px 0;
-  z-index: 999;
+  position: fixed; bottom: 0; left: 0; width: 100%;
+  display: flex; justify-content: center; gap: 10px;
+  padding: 10px 0; z-index: 999;
 }
 .bottom-bar .bottom-btn {
-  display: inline-block;
-  padding: 12px 24px;
-  border-radius: 10px;
-  background: #ffe4e6;
-  color: #000;
-  font-weight: normal;
-  text-decoration: none;
-  border: 1px solid #f5c0cb;
-  transition: all 0.3s ease;
-}
-.bottom-bar .bottom-btn:hover { 
-  transform: translateY(-2px); 
-  background: #ffd6dc;
-}
-
-@media (max-width:600px){
-  .hero h2 { font-size: 18px; }
-  .gallery img:hover { transform: scale(1.4); }
-  .site-header { height: 100px; }     
-  .logo-heading { font-size: 38px; } 
-}
-@media (max-width:480px){
-  .bottom-bar { flex-direction: row; gap: 6px; padding: 8px 0; }
-  .bottom-bar .bottom-btn { padding: 6px 10px; font-size: 14px; }
-  .gallery img { width: 80px; height: 80px; }
+  padding: 12px 24px; border-radius: 10px;
+  background: #ffe4e6; color: #000;
+  text-decoration: none; border: 1px solid #f5c0cb;
 }
 </style>
 </head>
@@ -283,7 +214,7 @@ body {
 <nav class="main-nav">
   <ul>
     <li><a href="index.html">Home</a></li>
-    <li><a href="eventstyling.html">Event</a></li>
+    <li><a href="eventstyling.html">Events</a></li>
     <li><a href="stylingshooting.html">Shootings</a></li>
     <li><a href="kids.html">Kids</a></li>
     <li><a href="special-makeup.html" class="active">Special Looks</a></li>
@@ -293,12 +224,23 @@ body {
 
 <main class="container">
 
+  <!-- Hero -->
   <section class="hero">
     <h2>Special Make-up Looks</h2>
     <p>💀 Kreative Looks für Halloween, Fasching oder Kinderschminken – individuell und passend zu jedem Anlass.</p>
     <a class="cta" href="mailto:info@sz-stylings.de">Jetzt Termin sichern</a>
   </section>
 
+  <!-- Galerie -->
+  <section class="gallery">
+    <h3>Beispiel Looks</h3>
+    <div class="images">
+      <img src="images/Wunde.jpg" alt="Special Make-up Wunde">
+      <!-- weitere Bilder -->
+    </div>
+  </section>
+
+  <!-- Services -->
   <section class="services">
     <h3>Meine Special Make-up Leistungen</h3>
     <ul>
@@ -308,51 +250,42 @@ body {
     </ul>
   </section>
 
-  <section class="gallery">
-    <h3>Beispiel Looks</h3>
-    <div class="images">
-      <img src="images/Wunde.jpg" alt="Special Make-up Wunde">
+  <!-- Preise Accordion -->
+  <section class="pricing">
+    <h3>Angebot & Preise</h3>
+    <div class="accordion">
+      <button class="accordion-button">Halloween Special Looks <span class="arrow">&#9656;</span></button>
+      <div class="accordion-content"><p>Preis ab 80€ je nach Aufwand (inkl. MwSt). Spezialeffekte, Wunden & Horror-Make-up individuell angepasst.</p></div>
+
+      <button class="accordion-button">Faschings- & Karnevals Looks <span class="arrow">&#9656;</span></button>
+      <div class="accordion-content"><p>Preis ab 60€ (inkl. MwSt). Kreative, farbenfrohe Make-up Styles passend zum Kostüm.</p></div>
+
+      <button class="accordion-button">Kinder-Schminken <span class="arrow">&#9656;</span></button>
+      <div class="accordion-content"><p>Preis auf Anfrage (inkl. MwSt). Altersgerechte, sichere Farben für Kinder-Events oder Geburtstage.</p></div>
     </div>
   </section>
 
+  <!-- Bewertungen -->
   <section class="reviews">
     <h3>Das sagen meine Kunden</h3>
     <div class="review-slider">
-      <div class="arrow left">&#10094;</div>
-      <div class="arrow right">&#10095;</div>
-
       <div class="slide active">
-        <blockquote>
-          "Mein Kind war total begeistert vom Kinderschminken – super kreativ!" – Anna L.
-        </blockquote>
-        <div class="review-meta">
-          <button class="verified">Verifiziert</button>
-          <div class="stars">★★★★★</div>
-        </div>
+        <blockquote>"Mein Kind war total begeistert vom Kinderschminken – super kreativ!" – Anna L.</blockquote>
       </div>
-
       <div class="slide">
-        <blockquote>
-          "Das Halloween-Make-up war der absolute Hingucker!" – Tim S.
-        </blockquote>
-        <div class="review-meta">
-          <button class="verified">Verifiziert</button>
-          <div class="stars">★★★★★</div>
-        </div>
+        <blockquote>"Das Halloween-Make-up war der absolute Hingucker!" – Tim S.</blockquote>
       </div>
     </div>
-    <div class="slider-dots">
-      <span class="dot active"></span>
-      <span class="dot"></span>
-    </div>
+    <div class="slider-dots"><span class="dot active"></span><span class="dot"></span></div>
   </section>
 
+  <!-- Kontakt -->
   <section class="contact">
     <h3>Kontakt</h3>
     <div class="contact-info">
       <p><strong>Email:</strong> <a href="mailto:info@sz-stylings.de">info@sz-stylings.de</a></p>
       <p><strong>Instagram:</strong> <a href="https://www.instagram.com/szstylings" target="_blank">@szstylings</a></p>
-      <p>Mobil unterwegs in Sachsen & Brandenburg (auf spezielle Anfrage deutschlandweit bzw. weltweit)</p>
+      <p>Mobil unterwegs in Sachsen & Brandenburg (auf Anfrage deutschlandweit)</p>
     </div>
   </section>
 
@@ -369,46 +302,24 @@ body {
 </div>
 
 <script>
-// Slider
+// Slider Logik
 let currentSlide = 0;
 const slides = document.querySelectorAll('.review-slider .slide');
 const dots = document.querySelectorAll('.slider-dots .dot');
-function showSlide(index) {
-  slides.forEach((slide,i)=>{
-    slide.classList.toggle('active', i===index);
-    dots[i].classList.toggle('active', i===index);
-  });
-}
-function nextSlide() {
-  currentSlide = (currentSlide + 1) % slides.length;
-  showSlide(currentSlide);
-}
-dots.forEach((dot,index)=>{
-  dot.addEventListener('click',()=>{
-    currentSlide = index;
-    showSlide(currentSlide);
-  });
-});
+function showSlide(i){slides.forEach((s,idx)=>{s.classList.toggle('active', idx===i);dots[idx].classList.toggle('active', idx===i);});}
+function nextSlide(){currentSlide=(currentSlide+1)%slides.length;showSlide(currentSlide);}
+dots.forEach((dot,i)=>dot.addEventListener('click',()=>{currentSlide=i;showSlide(i);}));
 setInterval(nextSlide,5000);
-const leftArrow = document.querySelector('.review-slider .arrow.left');
-const rightArrow = document.querySelector('.review-slider .arrow.right');
-leftArrow.addEventListener('click', () => {
-  currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-  showSlide(currentSlide);
-});
-rightArrow.addEventListener('click', () => { nextSlide(); });
-// Touch
-let startX = 0;
-let endX = 0;
-const slider = document.querySelector('.review-slider');
-slider.addEventListener('touchstart', e => { startX = e.touches[0].clientX; });
-slider.addEventListener('touchend', e => { 
-  endX = e.changedTouches[0].clientX;
-  if(startX - endX > 50) nextSlide();
-  else if(endX - startX > 50) { 
-    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-    showSlide(currentSlide);
-  }
+
+// Accordion Logik
+document.querySelectorAll('.accordion-button').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const content=btn.nextElementSibling;
+    const active=btn.classList.contains('active');
+    document.querySelectorAll('.accordion-button').forEach(b=>b.classList.remove('active'));
+    document.querySelectorAll('.accordion-content').forEach(c=>c.style.maxHeight=null);
+    if(!active){btn.classList.add('active');content.style.maxHeight=content.scrollHeight+"px";}
+  });
 });
 </script>
 
