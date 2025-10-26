@@ -255,16 +255,16 @@ body {
   <section class="contact">
     <h3>So erreichst du mich</h3>
     <div class="contact-info">
-    <p><strong>Email:</strong> <a href="mailto:info@sz-stylings.de">info@sz-stylings.de</a></p>
-    <p><strong>Instagram:</strong> <a href="https://www.instagram.com/szstylings" target="_blank">@szstylings</a></p>
-    <p>📍 Mobil unterwegs in Sachsen & Brandenburg (auf Anfrage auch weltweit)</p>
+      <p><strong>Email:</strong> <a href="mailto:info@sz-stylings.de">info@sz-stylings.de</a></p>
+      <p><strong>Instagram:</strong> <a href="https://www.instagram.com/szstylings" target="_blank">@szstylings</a></p>
+      <p>📍 Mobil unterwegs in Sachsen & Brandenburg (auf Anfrage auch weltweit)</p>
     </div>
   </section>
 
   <!-- Formular -->
   <section class="contact" style="margin-top:20px;">
     <h3>Schreib mir direkt hier</h3>
-    <form action="mailto:info@sz-stylings.de" method="post" enctype="text/plain">
+    <form id="contactForm">
       <label for="name">Dein Name:</label>
       <input type="text" id="name" name="name" required>
 
@@ -290,6 +290,21 @@ body {
   <a href="mailto:info@sz-stylings.de" class="bottom-btn">Email</a>
   <a href="https://www.instagram.com/szstylings" target="_blank" class="bottom-btn">Instagram</a>
 </div>
+
+<script>
+document.getElementById("contactForm").addEventListener("submit", function(e){
+  e.preventDefault();
+
+  const name = encodeURIComponent(document.getElementById("name").value);
+  const email = encodeURIComponent(document.getElementById("email").value);
+  const message = encodeURIComponent(document.getElementById("message").value);
+
+  const subject = encodeURIComponent(`Kontaktanfrage von ${name}`);
+  const body = `Name: ${name}%0AEmail: ${email}%0ANachricht:%0A${message}`;
+
+  window.location.href = `mailto:info@sz-stylings.de?subject=${subject}&body=${body}`;
+});
+</script>
 
 </body>
 </html>
