@@ -301,29 +301,7 @@ body {
   font-size: 14px;
 }
 
-<!-- Cookie Banner -->
-<div class="cookie-banner" id="cookie-banner">
-  <p>Wir verwenden Cookies, um unsere Website zu optimieren und Ihnen den bestmöglichen Service zu bieten.</p>
-  <div class="cookie-buttons">
-    <button class="accept">Akzeptieren</button>
-    <button class="decline">Ablehnen</button>
-    <button class="settings">Einstellungen</button>
-  </div>
-</div>
-
-<!-- Cookie Settings Panel -->
-<div class="cookie-settings-panel" id="cookie-settings-panel">
-  <h4>Cookie-Einstellungen</h4>
-  <p>Wählen Sie, welche Cookies Sie zulassen möchten:</p>
-  <label><input type="checkbox" id="essential-cookies" checked disabled> Essenzielle Cookies (immer aktiv)</label><br>
-  <label><input type="checkbox" id="analytics-cookies"> Analyse & Statistik</label><br>
-  <label><input type="checkbox" id="marketing-cookies"> Marketing / Werbung</label><br><br>
-  <button id="save-cookie-settings" class="accept">Speichern</button>
-  <button id="cancel-cookie-settings" class="decline">Abbrechen</button>
-</div>
-
-<style>
-/* Gemeinsames Styling für Banner & Panel */
+/* Cookie Banner & Settings */
 .cookie-banner, .cookie-settings-panel {
   position: fixed;
   bottom: 0;
@@ -340,20 +318,8 @@ body {
   font-family: 'Quicksand', sans-serif;
   color: #000;
 }
-
-.cookie-banner p, .cookie-settings-panel p {
-  margin-bottom: 16px;
-  font-size: 16px;
-}
-
-.cookie-buttons, .cookie-settings-panel label {
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin-bottom: 12px;
-}
-
+.cookie-banner p, .cookie-settings-panel p { margin-bottom: 16px; font-size: 16px; }
+.cookie-buttons, .cookie-settings-panel label { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-bottom: 12px; }
 .cookie-buttons button, .cookie-settings-panel button {
   padding: 12px 24px;
   border-radius: 10px;
@@ -364,80 +330,14 @@ body {
   cursor: pointer;
   transition: all 0.3s ease;
 }
-
-.cookie-buttons button:hover, .cookie-settings-panel button:hover {
-  background: #ffd6dc;
-  transform: translateY(-2px);
-}
-
+.cookie-buttons button:hover, .cookie-settings-panel button:hover { background: #ffd6dc; transform: translateY(-2px); }
 .cookie-settings-panel h4 {
   font-family: 'Italianno', cursive;
   font-weight: 100;
   font-size: 28px;
   margin-bottom: 12px;
 }
-
-.cookie-settings-panel label {
-  font-size: 16px;
-  gap: 8px;
-}
-</style>
-
-<script>
-const cookieBanner = document.getElementById('cookie-banner');
-const cookieSettingsPanel = document.getElementById('cookie-settings-panel');
-const openCookieSettings = document.getElementById('open-cookie-settings');
-const acceptBtn = cookieBanner.querySelector('.accept');
-const declineBtn = cookieBanner.querySelector('.decline');
-const settingsBtn = cookieBanner.querySelector('.settings');
-const saveSettingsBtn = document.getElementById('save-cookie-settings');
-const cancelSettingsBtn = document.getElementById('cancel-cookie-settings');
-const analyticsCheckbox = document.getElementById('analytics-cookies');
-const marketingCheckbox = document.getElementById('marketing-cookies');
-
-// Banner beim ersten Laden anzeigen, falls keine Wahl gespeichert
-if (!localStorage.getItem('cookieChoice')) {
-  cookieBanner.style.display = 'block';
-}
-
-// Akzeptieren / Ablehnen
-acceptBtn.addEventListener('click', () => {
-  localStorage.setItem('cookieChoice', 'accepted');
-  cookieBanner.style.display = 'none';
-});
-declineBtn.addEventListener('click', () => {
-  localStorage.setItem('cookieChoice', 'declined');
-  cookieBanner.style.display = 'none';
-});
-
-// Einstellungen öffnen
-settingsBtn.addEventListener('click', () => {
-  cookieSettingsPanel.style.display = 'block';
-});
-
-// Einstellungen abbrechen
-cancelSettingsBtn.addEventListener('click', () => {
-  cookieSettingsPanel.style.display = 'none';
-});
-
-// Einstellungen speichern
-saveSettingsBtn.addEventListener('click', () => {
-  const settings = {
-    analytics: analyticsCheckbox.checked,
-    marketing: marketingCheckbox.checked
-  };
-  localStorage.setItem('cookieSettings', JSON.stringify(settings));
-  cookieSettingsPanel.style.display = 'none';
-  cookieBanner.style.display = 'none';
-  console.log('Gespeicherte Cookie-Einstellungen:', settings);
-});
-
-// Cookie-Einstellungen auch über Footer-Link öffnen
-openCookieSettings.addEventListener('click', (e) => {
-  e.preventDefault();
-  cookieSettingsPanel.style.display = 'block';
-});
-</script>
+.cookie-settings-panel label { font-size: 16px; gap: 8px; }
 
 /* Responsive */
 @media (max-width:600px){
@@ -448,15 +348,8 @@ openCookieSettings.addEventListener('click', (e) => {
   .logo-heading { font-size: 38px; top: 30%; transform: translate(-50%, -30%); } 
 }
 @media (max-width:480px){
-  .bottom-bar {
-    flex-direction: row;        /* nebeneinander */
-    gap: 8px;                   /* weniger Abstand */
-    padding: 8px 0;
-  }
-  .bottom-bar .bottom-btn {
-    padding: 8px 12px;          /* kleinere Buttons */
-    font-size: 14px;
-  }
+  .bottom-bar { flex-direction: row; gap: 8px; padding: 8px 0; }
+  .bottom-bar .bottom-btn { padding: 8px 12px; font-size: 14px; }
   .gallery img { width: 80px; height: 80px; }
 }
 </style>
